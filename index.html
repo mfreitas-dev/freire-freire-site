@@ -56,6 +56,7 @@
     }
     nav.scrolled {
       background: rgba(44,26,14,0.97);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(201,168,76,0.18);
       padding: 14px 60px;
@@ -210,7 +211,6 @@
       margin-top: 48px;
       display: flex; gap: 40px;
     }
-    .stat { }
     .stat-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 52px; font-weight: 300;
@@ -593,7 +593,7 @@
     .faq-question {
       display: flex; align-items: center; justify-content: space-between;
       gap: 24px; padding: 26px 32px;
-      cursor: pointer; user-select: none;
+      cursor: pointer; -webkit-user-select: none; user-select: none;
       list-style: none;
     }
     .faq-question::-webkit-details-marker { display: none; }
@@ -646,7 +646,6 @@
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 100px;
     }
-    .contact-left {}
     .contact-intro {
       font-size: 18.5px; line-height: 1.9;
       color: rgba(240,226,182,0.6); margin: 32px 0 48px;
@@ -673,7 +672,6 @@
     }
     .contact-item-content a:hover { color: var(--gold-light); }
 
-    .contact-right {}
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 7px; }
@@ -692,7 +690,8 @@
       padding: 13px 16px; outline: none;
       transition: border-color 0.3s, background 0.3s;
       resize: none;
-      -webkit-appearance: none;
+      -webkit-appearance: none;      
+      appearance: none;
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder {
@@ -881,7 +880,7 @@
 
     .nav-mobile-menu {
       display: none; position: fixed; inset: 0;
-      background: rgba(28,14,5,0.97); backdrop-filter: blur(18px);
+      background: rgba(28,14,5,0.97); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
       z-index: 105; flex-direction: column;
       align-items: center; justify-content: center; gap: 0;
     }
@@ -920,7 +919,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero { grid-template-columns: 1fr;min-height: 0; min-height: auto; }
       .hero::before { display: none; }
       .hero-left {
         padding: 110px 40px 200px;
@@ -1424,7 +1423,9 @@
         </div>
         <div class="contact-item-content">
           <h5>Telefone / WhatsApp</h5>
-          <a href="tel:+5579999999999">(79) 9 9999-9999</a>
+          <a href="tel:+557930199019">Fixo: (79) 3019-9019</a>
+          <a href="https://wa.me/557981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Kariny: (79) 9 8171-4452</a>
+          <a href="https://wa.me/5579999970936?text=Olá+Daniel,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Daniel: (79) 9 9997-0936</a>
         </div>
       </div>
       <div class="contact-item">
@@ -1455,7 +1456,6 @@
           src="https://maps.google.com/maps?q=Rua+Pacatuba,+254,+Centro,+Aracaju,+SE,+Brasil&output=embed&hl=pt-BR"
           allowfullscreen
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
           title="Localização Freire & Freire Advocacia">
         </iframe>
       </div>
