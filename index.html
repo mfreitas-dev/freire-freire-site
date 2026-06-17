@@ -220,8 +220,13 @@
       font-size: 24px; color: var(--gold);
     }
     .stat-label {
-      font-family: 'Cinzel', serif; font-size: 11px;
+      font-family: 'Cinzel', serif; font-size: 16px;
       letter-spacing: 0.22em; color: var(--gold-dim);
+      text-transform: uppercase; margin-top: 4px;
+    }
+    .stat-span{
+      font-family: 'Cinzel', serif; font-size: 19px;
+      letter-spacing: 0.22em; color: var(--gold-light);
       text-transform: uppercase; margin-top: 4px;
     }
 
@@ -285,6 +290,22 @@
       bottom: -1px; left: -1px;
       border-bottom: 2px solid var(--gold);
       border-left: 2px solid var(--gold);
+    }
+    .photo-frame-text {
+      position: absolute;
+      top: 10%;
+      right: 10px;
+      left: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      opacity: 0.85;
+      pointer-events: auto;
+      text-align: right
     }
 
     #advfoto {
@@ -522,7 +543,7 @@
     }
     .areas-header-left { max-width: 500px; }
     .areas-header-right {
-      font-size: 14px; color: rgba(240,226,182,0.5);
+      font-size: 20px; color: var(--gold-light);
       max-width: 280px; text-align: right; line-height: 1.7;
     }
     .areas-grid {
@@ -1121,6 +1142,30 @@
       .footer-copy { justify-self: center; text-align: center; }
       .footer-oab { justify-self: center; text-align: center; }
       .footer-bottom { margin-top: 8px; }
+      /* Make the photo frame larger (less inset) on smaller screens */
+      .photo-frame {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+      }
+
+      /* Push the photo down to clear space at the top of the frame */
+      #advfoto {
+        top: 60px; /* Starts 40px below the top of the frame */
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+        height: calc(100% - 80px);
+      }
+
+      /* Position the text in the newly cleared space at the top of the frame */
+      .photo-frame-text {
+        top: 15px;
+        right: 20px;
+        font-size: 13px; /* Slightly smaller for better fit on tablet/mobile */
+      }
     }
 
     /* ─── RESPONSIVE — MOBILE GRANDE (≤768px) ─── */
@@ -1184,7 +1229,7 @@
       .hero-subtitle { display: none; }
       .hero-stats { gap: 18px; }
       .stat-num { font-size: 32px; }
-      .stat-label { font-size: 9px; letter-spacing: 0.14em; }
+      .stat-label { font-size: 14px; letter-spacing: 0.14em; }
       .hero-right { min-height: 80vw; }
       .hero-badge { padding: 12px 18px; }
       .hero-badge-year { font-size: 9px; }
@@ -1253,7 +1298,7 @@
     <p class="hero-subtitle">ADVOCACIA · ASSESSORIA · CONSULTORIA</p>
     <div class="hero-divider"></div>
     <p class="hero-desc">
-Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência na defesa dos seus direitos.     </p>
+      Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência na defesa dos seus direitos.     </p>
     <div class="hero-actions">
       <a href="#contato" class="btn-primary">Agendar Consultoria</a>
       <a href="#areas" class="btn-secondary">Nossas Especialidades</a>
@@ -1261,7 +1306,7 @@ Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">7<sup>+</sup></div>
-        <div class="stat-label">EStados onde atuamos: <br>SERGIPE, SANTA CATARINA, PERNAMBUCO,<br> BAHIA, ALAGOAS, NATAL, DISTRITO FEDERAL</div>
+        <div class="stat-label"><span class="stat-span">Estados onde atuamos: </span><br>SERGIPE, SANTA CATARINA, PERNAMBUCO,<br> BAHIA, ALAGOAS, NATAL, DISTRITO FEDERAL</div>
       </div>
       <!-- <div class="stat">
         <div class="stat-num">150<sup>+</sup></div>
@@ -1269,7 +1314,7 @@ Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência
       </div> -->
       <div class="stat">
         <div class="stat-num">8<sup></sup></div>
-        <div class="stat-label">Áreas de atuação</div>
+        <div class="stat-label"><span class="stat-span">Áreas de Especialidade</span></div>
       </div>
     </div>
   </div>
@@ -1279,6 +1324,7 @@ Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência
       <div class="photo-frame">
         <div class="photo-frame-corner-tr"></div>
         <div class="photo-frame-corner-bl"></div>
+        <span class="photo-frame-text">Se chegamos até aqui foi porque nos apoiamos nos ombros dos gigantes. Isaac Newton </span>
       </div>
       <img src="assets/img/advs-semfundo2048.png" alt="Foto dos advogados" id="advfoto">
     </div>
@@ -1382,7 +1428,7 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
   <div class="areas-header">
     <div class="areas-header-left">
       <div class="section-label">Especialidades</div>
-      <h2 class="section-heading">Áreas de <em>Atuação</em></h2>
+      <h2 class="section-heading">Áreas que somos <em>Especialistas</em></h2>
     </div>
     <p class="areas-header-right">
       Atuamos nas principais esferas do direito, com equipe especializada e atualizada para oferecer a melhor defesa dos seus interesses.
