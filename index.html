@@ -220,8 +220,13 @@
       font-size: 24px; color: var(--gold);
     }
     .stat-label {
-      font-family: 'Cinzel', serif; font-size: 11px;
+      font-family: 'Cinzel', serif; font-size: 16px;
       letter-spacing: 0.22em; color: var(--gold-dim);
+      text-transform: uppercase; margin-top: 4px;
+    }
+    .stat-span{
+      font-family: 'Cinzel', serif; font-size: 19px;
+      letter-spacing: 0.22em; color: var(--gold-light);
       text-transform: uppercase; margin-top: 4px;
     }
 
@@ -285,6 +290,22 @@
       bottom: -1px; left: -1px;
       border-bottom: 2px solid var(--gold);
       border-left: 2px solid var(--gold);
+    }
+    .photo-frame-text {
+      position: absolute;
+      top: 10%;
+      right: 10px;
+      left: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      opacity: 0.85;
+      pointer-events: auto;
+      text-align: right
     }
 
     #advfoto {
@@ -522,7 +543,7 @@
     }
     .areas-header-left { max-width: 500px; }
     .areas-header-right {
-      font-size: 14px; color: rgba(240,226,182,0.5);
+      font-size: 20px; color: var(--gold-light);
       max-width: 280px; text-align: right; line-height: 1.7;
     }
     .areas-grid {
@@ -829,32 +850,108 @@
     }
     .footer-links a:hover { color: var(--gold-light); }
     .footer-copy {
-      font-size: 11.5px; color: rgba(201, 168, 76, 0.505);
+      font-size: 11.5px; color: rgba(201, 168, 76, 0.884);
       letter-spacing: 0.05em;
       justify-self: end; text-align: right;
     }
     .footer-oab {
       font-size: 11.5px; color: var(--gold);
       letter-spacing: 0.05em;
-      justify-self: end; text-align: right;
-
+      justify-self: end; text-align: center;
     }
 
-    /* ─── WHATSAPP FLOAT ─── */
-    .whatsapp-btn {
+    /* ─── FLOAT CONTATO ─── */
+    .float-contact {
       position: fixed; bottom: 32px; right: 32px;
+      z-index: 200;
+      display: flex; flex-direction: column; align-items: flex-end;
+      gap: 10px;
+    }
+
+    /* opções que surgem acima */
+    .float-options {
+      display: flex; flex-direction: column; align-items: flex-end;
+      gap: 8px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .float-contact:hover .float-options,
+    .float-contact.open .float-options {
+      opacity: 1; transform: translateY(0); pointer-events: auto;
+    }
+
+    .float-option {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+      background: rgba(28, 16, 6, 0.92);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 9px 16px 9px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      transition: border-color 0.22s, background 0.22s, transform 0.22s;
+    }
+    .float-option:hover {
+      border-color: rgba(201,168,76,0.55);
+      background: rgba(40, 22, 8, 0.97);
+      transform: translateX(-3px);
+    }
+    .float-option-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .float-option-icon.wpp {color: white; background: #25D366; }
+    .float-option-icon.wpp2 { color: white; background: #25D366; }
+    .float-option-icon svg { width: 17px; height: 17px; }
+    .float-option-text { display: flex; flex-direction: column; }
+    .float-option-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .float-option-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 13px; color: rgba(240,226,182,0.65);
+      margin-top: 1px;
+    }
+
+    /* botão principal */
+    .float-main-btn {
       width: 54px; height: 54px; border-radius: 50%;
-      background: #25D366; display: flex;
-      align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      z-index: 200; text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      cursor: pointer; border: none;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      flex-shrink: 0;
     }
-    .whatsapp-btn:hover {
-      transform: scale(1.20);
+    .float-main-btn:hover,
+    .float-contact.open .float-main-btn {
+      transform: scale(1.1);
       box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+      background: #20c05a;
     }
-    .whatsapp-btn svg { width: 28px; height: 28px; color: white;}
+    .float-main-btn svg { width: 28px; height: 28px; color: white; }
+
+    /* ícone de fechar (×) que aparece quando open */
+    .float-main-btn .icon-close { display: none; }
+    .float-contact.open .float-main-btn .icon-wpp  { display: none; }
+    .float-contact.open .float-main-btn .icon-close { display: block; }
+
+    @media (max-width: 480px) {
+      .float-contact { bottom: 20px; right: 20px; }
+      .float-main-btn { width: 48px; height: 48px; }
+      .float-main-btn svg { width: 24px; height: 24px; }
+      .float-option { padding: 8px 12px 8px 10px; }
+      .float-option-icon { width: 28px; height: 28px; }
+      .float-option-icon svg { width: 14px; height: 14px; }
+    }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
@@ -1046,6 +1143,30 @@
       .footer-copy { justify-self: center; text-align: center; }
       .footer-oab { justify-self: center; text-align: center; }
       .footer-bottom { margin-top: 8px; }
+      /* Make the photo frame larger (less inset) on smaller screens */
+      .photo-frame {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+      }
+
+      /* Push the photo down to clear space at the top of the frame */
+      #advfoto {
+        top: 90px; /* Starts 40px below the top of the frame */
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+        height: calc(100% - 80px);
+      }
+
+      /* Position the text in the newly cleared space at the top of the frame */
+      .photo-frame-text {
+        top: 15px;
+        right: 20px;
+        font-size: 13px; /* Slightly smaller for better fit on tablet/mobile */
+      }
     }
 
     /* ─── RESPONSIVE — MOBILE GRANDE (≤768px) ─── */
@@ -1109,7 +1230,7 @@
       .hero-subtitle { display: none; }
       .hero-stats { gap: 18px; }
       .stat-num { font-size: 32px; }
-      .stat-label { font-size: 9px; letter-spacing: 0.14em; }
+      .stat-label { font-size: 14px; letter-spacing: 0.14em; }
       .hero-right { min-height: 80vw; }
       .hero-badge { padding: 12px 18px; }
       .hero-badge-year { font-size: 9px; }
@@ -1138,9 +1259,6 @@
 
       footer { padding: 32px 16px; gap: 16px; }
       .footer-links { gap: 16px; }      .logonav { height: 36px; }
-
-      .whatsapp-btn { width: 48px; height: 48px; bottom: 20px; right: 20px; }
-      .whatsapp-btn svg { width: 24px; height: 24px; }
     }
   </style>
 </head>
@@ -1148,7 +1266,7 @@
 
 <!-- ══ MENU MOBILE ══ -->
 <div class="nav-mobile-menu" id="mobileMenu">
-  <img src="assets/img/logo-semfundo.png" alt="Freire & Freire" class="nav-mobile-logo">
+  <img src="assets/img/logo-semfundo.png" alt="Freire & Freire" class="nav-mobile-logo" loading="lazy">
   <ul>
     <li><a href="#sobre" onclick="closeMobileMenu()">O Escritório</a></li>
     <li><a href="#areas" onclick="closeMobileMenu()">Áreas de Atuação</a></li>
@@ -1161,7 +1279,7 @@
 <!-- ══ NAV ══ -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="assets/img/logo-semfundo.png" alt="Logo Freire & Freire" class="logonav">
+    <img src="assets/img/logo-semfundo.png" alt="Logo Freire & Freire" class="logonav" loading="eager">
   </a>
   <ul class="nav-links">
     <li><a href="#sobre">O Escritório</a></li>
@@ -1177,27 +1295,27 @@
 <section class="hero" id="inicio">
   <div class="hero-left">
     <div class="hero-eyebrow">Advocacia de Excelência</div>
-    <img src="assets/img/logo-semfundo.png" alt="Freire & Freire Advocacia" class="logohero">
+    <img src="assets/img/logo-semfundo.png" alt="Freire & Freire Advocacia" class="logohero" loading="eager">
     <p class="hero-subtitle">ADVOCACIA · ASSESSORIA · CONSULTORIA</p>
     <div class="hero-divider"></div>
     <p class="hero-desc">
-Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência na defesa dos seus direitos.     </p>
+      Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência na defesa dos seus direitos.     </p>
     <div class="hero-actions">
       <a href="#contato" class="btn-primary">Agendar Consultoria</a>
       <a href="#areas" class="btn-secondary">Nossas Especialidades</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-num">5<sup>+</sup></div>
-        <div class="stat-label">Anos de Experiência</div>
+        <div class="stat-num">7<sup>+</sup></div>
+        <div class="stat-label"><span class="stat-span">Estados onde atuamos: </span><br>SERGIPE, SANTA CATARINA, PERNAMBUCO,<br> BAHIA, ALAGOAS, NATAL, DISTRITO FEDERAL</div>
       </div>
-      <div class="stat">
+      <!-- <div class="stat">
         <div class="stat-num">150<sup>+</sup></div>
         <div class="stat-label">Clientes Atendidos</div>
-      </div>
+      </div> -->
       <div class="stat">
-        <div class="stat-num">7<sup>+</sup></div>
-        <div class="stat-label">Áreas de atuação</div>
+        <div class="stat-num">8<sup></sup></div>
+        <div class="stat-label"><span class="stat-span">Áreas de Especialidade</span></div>
       </div>
     </div>
   </div>
@@ -1207,8 +1325,9 @@ Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência
       <div class="photo-frame">
         <div class="photo-frame-corner-tr"></div>
         <div class="photo-frame-corner-bl"></div>
+        <span class="photo-frame-text">Se chegamos até aqui foi porque nos apoiamos nos ombros dos gigantes. Isaac Newton </span>
       </div>
-      <img src="assets/img/advs-semfundo2048.png" alt="Foto dos advogados" id="advfoto">
+      <img src="assets/img/Foto dos advogados.png" alt="Foto dos advogados" id="advfoto">
     </div>
     <div class="hero-right-overlay"></div>
     <div class="hero-badge">
@@ -1228,7 +1347,7 @@ Mais que advocacia: dedicação real à sua causa. Comprometimento e excelência
     </blockquote>
     <p class="about-text">
 O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um instrumento de transformação social e proteção da dignidade humana. Inspirado por experiências pessoais que revelaram a importância do acesso à defesa de direitos, o escritório foi fundado com a missão de amparar aqueles que mais necessitam de orientação jurídica qualificada e comprometida.
-<br>Com atuação pautada na ética, na excelência e no atendimento humanizado, buscamos oferecer não apenas soluções jurídicas, mas também segurança, acolhimento e confiança em cada etapa da jornada de nossos clientes.    </p>
+Com atuação pautada na ética, na excelência e no atendimento humanizado, buscamos oferecer não apenas soluções jurídicas, mas também segurança, acolhimento e confiança em cada etapa da jornada de nossos clientes.    </p>
     <p class="about-text">
       Nossa equipe combina profundo conhecimento técnico com a experiência prática necessária para enfrentar os desafios mais complexos do direito moderno.
     </p>
@@ -1260,37 +1379,41 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
 
   <!-- CARROSSEL -->
   <div class="about-carousel-wrap">
-    <p class="about-carousel-label">Nosso Escritório</p>
+    <p class="about-carousel-label">CONHEÇA Nosso Escritório</p>
     <div class="carousel-viewport" id="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-card">
-          <img src="assets/img/foto-fachada.jpg" alt="Fachada do escritório">
-          <span class="carousel-card-caption">Fachada</span>
+          <img src="assets/img/Foto da fachada.jpg" alt="Fachada do escritório" loading="lazy">
+          <span class="carousel-card-caption">ENTRADA</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/foto-biblioteca (2).jpg" alt="Biblioteca jurídica">
+          <img src="assets/img/Foto do escritório 01.jpg" alt="Biblioteca jurídica" loading="lazy">
           <span class="carousel-card-caption">Escritório</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/foto-escritorio02.jpg" alt="Sala de atendimento">
+          <img src="assets/img/Foto do escritório 02.jpg" alt="Sala de atendimento" loading="lazy">
           <span class="carousel-card-caption">Atendimento</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/foto-equipe.jpg" alt="Equipe">
+          <img src="assets/img/Foto da equipe.jpeg" alt="Equipe" loading="lazy">
           <span class="carousel-card-caption">Nossa Equipe</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/foto-kariny.jpg" alt="Equipe">
+          <img src="assets/img/Foto da Dra. Kariny.jpg" alt="Equipe" loading="lazy">
           <span class="carousel-card-caption">Dra. Kariny</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/foto-biblioteca.jpg" alt="Biblioteca jurídica">
+          <img src="assets/img/Foto da bibilioteca.jpg" alt="Biblioteca jurídica" loading="lazy">
           <span class="carousel-card-caption">Biblioteca</span>
         </div>
-
+        <div class="carousel-card">
+          <img src="assets/img/Foto do escritório 03.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">MAIS DO NOSSO Escritório</span>
+        </div>
       </div>
     </div>
     <div class="carousel-controls">
+      <div class="carousel-dots" id="carouselDots"></div>
       <button class="carousel-btn" id="carouselPrev" aria-label="Anterior">
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9,2 4,7 9,12"/>
@@ -1309,7 +1432,7 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
   <div class="areas-header">
     <div class="areas-header-left">
       <div class="section-label">Especialidades</div>
-      <h2 class="section-heading">Áreas de <em>Atuação</em></h2>
+      <h2 class="section-heading">Áreas que somos <em>Especialistas</em></h2>
     </div>
     <p class="areas-header-right">
       Atuamos nas principais esferas do direito, com equipe especializada e atualizada para oferecer a melhor defesa dos seus interesses.
@@ -1506,15 +1629,6 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
       <h2 class="section-heading">Perguntas que todo <em>cliente faz</em></h2>
     </div>
     <div class="faq-list">
-
-      <!-- <div class="faq-item">
-        <div class="faq-question">
-          <span class="faq-question-text">A consulta inicial é realmente gratuita?</span>
-          <div class="faq-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-        <div class="faq-answer"><p>Sim, sem nenhuma condição. A primeira conversa serve para entendermos o seu caso, avaliarmos as possibilidades jurídicas e apresentarmos os caminhos disponíveis — tudo isso sem qualquer cobrança. Só avançamos para a contratação se você quiser e se houver um caminho viável a percorrer.</p></div>
-      </div> -->
-
       <div class="faq-item">
         <div class="faq-question">
           <span class="faq-question-text">Quanto custa contratar um advogado? Como funciona o pagamento?</span>
@@ -1565,7 +1679,7 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
     <div class="section-label">Entre em Contato</div>
     <h2 class="section-heading">Agende sua <em>Consultoria</em></h2>
     <p class="contact-intro">
-      Estamos prontos para ouvir o seu caso e apresentar as melhores soluções jurídicas. A primeira Consultoria é gratuita.
+      Estamos prontos para ouvir o seu caso e apresentar as melhores soluções jurídicas.
     </p>
     <div class="contact-info">
       <div class="contact-item">
@@ -1575,8 +1689,8 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
         <div class="contact-item-content">
           <h5>Telefone / WhatsApp</h5>
           <p><a href="tel:+557930199019">Fixo: (79) 3019-9019</a></p>
-          <p><a href="https://wa.me/557981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Kariny: (79) 9 8171-4452</a></p> 
-          <p><a href="https://wa.me/55799996718080?text=Olá,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Escritório: (79) 9 9671-8080</a></p> 
+          <p><a href="https://wa.me/5579981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Kariny: (79) 9 8171-4452</a></p> 
+          <p><a href="https://wa.me/5579996718080?text=Olá,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Escritório: (79) 9 9671-8080</a></p> 
         </div>
       </div>
       <div class="contact-item">
@@ -1675,14 +1789,16 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-top">
-    <img src="assets/img/logo-semfundo.png" alt="Logo Freire & Freire" class="logonav">
+    <img src="assets/img/logo-semfundo.png" alt="Logo Freire & Freire" class="logonav" loading="lazy">
     <!-- <ul class="footer-links">
       <li><a href="#sobre">O Escritório</a></li>
       <li><a href="#areas">Áreas de Atuação</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul> -->
-    <p class="footer-oab">Dra. Kariny Souza da Silva Freire – OAB/SE 18.134</p>
-    <p class="footer-copy">© 2026 Freire & Freire. Todos os direitos reservados.</p>
+    <p class="footer-oab">
+      <!-- FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA CNPJ:  -->
+      <br> Kariny Souza da Silva Freire – OAB/SE 18.134</p>
+    <p class="footer-copy">© 2026 Freire & Freire Advocacia. Todos os direitos reservados.</p>
   </div>
   <div class="footer-bottom">
     <p class="footer-dev">
@@ -1691,19 +1807,71 @@ O Freire & Freire Advocacia nasceu da crença de que a justiça deve ser um inst
   </div>
 </footer>
 
-<!-- ══ WHATSAPP ══ -->
-<a href="https://wa.me/5579999999999" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
-  </svg>
-</a>
-<a href="https://wa.me/5579999999999" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-    <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
-  </svg>
-</a>
+<!-- ══ FLOAT CONTATO ══ -->
+<div class="float-contact" id="floatContact">
+
+  <!-- opções que aparecem no hover / clique -->
+  <div class="float-options">
+
+    <a href="https://wa.me/5579996718080?text=Olá,+vim+através+do+site+e+quero+falar+sobre+consultoria" class="float-option" target="_blank" rel="noopener" aria-label="WhatsApp Dr. Freire">
+      <div class="float-option-icon wpp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+          <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
+        </svg>
+      </div>
+      <div class="float-option-text">
+        <span class="float-option-label">Escritório</span>
+        <span class="float-option-name">(79) 9 9671-8080</span>
+      </div>
+    </a>
+
+    <a href="https://wa.me/5579981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" class="float-option" target="_blank" rel="noopener" aria-label="WhatsApp Dra. Freire">
+      <div class="float-option-icon wpp2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+          <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
+        </svg>
+      </div>
+      <div class="float-option-text">
+        <span class="float-option-label">Dra. Kariny</span>
+        <span class="float-option-name">(79) 9 8171-4452</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- botão principal -->
+  <button class="float-main-btn" id="floatMainBtn" aria-label="Contato via WhatsApp">
+    <!-- ícone WhatsApp -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+      <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
+    </svg>
+    <!-- ícone fechar -->
+    <!-- <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg> -->
+  </button>
+
+</div>
 
 <script>
+  // Float contact — toggle no clique (mobile) e hover (desktop)
+  const floatContact = document.getElementById('floatContact');
+  const floatMainBtn = document.getElementById('floatMainBtn');
+
+  floatMainBtn.addEventListener('click', () => {
+    floatContact.classList.toggle('open');
+  });
+
+  // Fechar ao clicar em uma opção
+  document.querySelectorAll('.float-option').forEach(opt => {
+    opt.addEventListener('click', () => floatContact.classList.remove('open'));
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!floatContact.contains(e.target)) floatContact.classList.remove('open');
+  });
+
   // Navbar scroll effect
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
