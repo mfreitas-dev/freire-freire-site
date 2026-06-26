@@ -14,19 +14,6 @@
       --brown-dark:   #4A2C18;
       --brown-mid:    #5E3820;
       --brown-light:  #784A2C;
-
-      /* Escala progressiva — cada section um pouco mais escura que a anterior */
-      --sec-1: #4E2F1A;  /* Hero */
-      --sec-2: #452917;  /* O Escritório */
-      --sec-3: #3C2313;  /* Áreas de Atuação */
-      --sec-3-card: #331F11;
-      --sec-4: #331E10;  /* Diferenciais */
-      --sec-4-card: #2B1A0E;
-      --sec-5: #2B190D;  /* FAQ */
-      --sec-5-card: #24150A;
-      --sec-6: #23150A;  /* Contato */
-      --sec-7: #1C1007;  /* Footer */
-
       --gold:         #b8903fea;
       --gold-light:   #c7a04d;
       --gold-pale:    #FDF0C0;
@@ -115,7 +102,7 @@
       transition: opacity 0.25s ease !important;
     }
     .nav-cta::after { display: none !important; }
-    .nav-cta:hover { opacity: 0.88 !important; color: var(--brown-deep) !important;}
+    .nav-cta:hover { opacity: 0.88 !important; color: var(--brown-deep) !important; }
 
     /* ─── HERO ─── */
     .hero {
@@ -138,7 +125,7 @@
     .hero-left {
       display: flex; flex-direction: column; justify-content: center;
       padding: 140px 80px 80px 100px;
-      background: var(--sec-1);
+      background: var(--brown-deep);
       position: relative;
     }
     .hero-left::after {
@@ -394,7 +381,7 @@
 
     /* ─── ABOUT / PHILOSOPHY ─── */
     .about {
-      background: var(--sec-2);
+      background: var(--brown-deep);
       padding: 120px 70px;
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 100px; align-items: center;
@@ -547,7 +534,7 @@
 
     /* ─── AREAS DE ATUAÇÃO ─── */
     .areas {
-      background: var(--sec-3);
+      background: var(--brown-dark);
       padding: 120px 70px;
     }
     .areas-header {
@@ -565,7 +552,7 @@
       gap: 2px;
     }
     .area-card {
-      background: var(--sec-3-card);
+      background: var(--brown-deep);
       padding: 40px 30px;
       position: relative; overflow: hidden;
       transition: transform 0.3s ease;
@@ -588,9 +575,7 @@
       color: var(--gold);
     }
     .area-title {
-      /* font-family: 'Cinzel', serif;  */
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17.5px;
+      font-family: 'Cinzel', serif; font-size: 12.5px;
       font-weight: 600; letter-spacing: 0.1em;
       color: var(--gold-light); margin-bottom: 14px;
       /* text-transform: uppercase; */
@@ -602,7 +587,7 @@
 
     /* ─── DIFERENCIAIS ─── */
     .diferenciais {
-      background: var(--sec-4);
+      background: var(--brown-dark);
       padding: 120px 70px;
       position: relative; overflow: hidden;
     }
@@ -638,7 +623,7 @@
       position: relative; z-index: 1;
     }
     .diff-card {
-      background: var(--sec-4-card);
+      background: var(--brown-deep);
       padding: 44px 34px 40px;
       position: relative; overflow: hidden;
       transition: background 0.3s ease;
@@ -679,7 +664,7 @@
     /* ─── TESTIMONIAL ─── */
     /* ─── FAQ ─── */
     .faq-section {
-      background: var(--sec-5);
+      background: var(--brown-dark);
       padding: 120px 70px;
       position: relative;
     }
@@ -703,7 +688,7 @@
     }
     .faq-list { display: flex; flex-direction: column; gap: 2px; }
     .faq-item {
-      background: var(--sec-5-card);
+      background: var(--brown-deep);
       border-left: 2px solid transparent;
       transition: border-color 0.3s ease;
       overflow: hidden;
@@ -762,7 +747,7 @@
 
     /* ─── CONTATO ─── */
     .contact {
-      background: var(--sec-6);
+      background: var(--brown-deep);
       padding: 120px 70px;
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 100px;
@@ -771,19 +756,19 @@
       font-size: 18.5px; line-height: 1.9;
       color: rgba(240,226,182,0.6); margin: 32px 0 48px;
     }
-    .contact-info { display: grid; grid-template-columns:1fr 1fr; gap: 20px; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
     .contact-item {
       display: flex; gap: 18px; align-items: flex-start;
     }
     .contact-item-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
+      width: 36px; height: 36px; flex-shrink: 0;
       background: rgba(201,168,76,0.1);
       border: 1px solid rgba(201,168,76,0.2);
       display: flex; align-items: center; justify-content: center;
       color: var(--gold); margin-top: 2px;
     }
     .contact-item-content h5 {
-      font-family: 'Cinzel', serif; font-size: 14px;
+      font-family: 'Cinzel', serif; font-size: 12px;
       font-weight: 600; letter-spacing: 0.2em;
       color: var(--gold-dim); margin-bottom: 4px;
     }
@@ -841,13 +826,13 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--sec-7);
+      background: var(--brown-deep);
       border-top: 1px solid rgba(201,168,76,0.15);
       padding: 46px 70px 36px;
     }
     .footer-top {
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 16px;
     }
@@ -855,9 +840,8 @@
       justify-self: start;
     }
     .footer-links {
-      display: flex;
-       gap: 28px; list-style: none;
-      justify-self: start;
+      display: flex; gap: 28px; list-style: none;
+      justify-self: center;
     }
     .footer-links a {
       font-family: 'Cinzel', serif; font-size: 9.5px;
@@ -874,23 +858,6 @@
       font-size: 11.5px; color: var(--gold);
       letter-spacing: 0.05em;
       justify-self: end; text-align: center;
-    }
-    .footer-dir {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding-left: 60px;
-    }
-    .footer-esq {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        border-right: 1px solid var(--gold);
-
-        gap: 24px;
     }
 
     /* ─── FLOAT CONTATO ─── */
@@ -1303,7 +1270,8 @@
   <ul>
     <li><a href="#sobre" onclick="closeMobileMenu()">O Escritório</a></li>
     <li><a href="#areas" onclick="closeMobileMenu()">Áreas de Atuação</a></li>
-    <li><a href="#faq" onclick="closeMobileMenu()">Perguntas Frequentes</a></li>
+    <li><a href="#diferenciais" onclick="closeMobileMenu()">Diferenciais</a></li>
+    <li><a href="#contato" onclick="closeMobileMenu()">Contato</a></li>
   </ul>
   <a href="#contato" class="mobile-cta" onclick="closeMobileMenu()">Agendar Consultoria</a>
 </div>
@@ -1316,7 +1284,6 @@
   <ul class="nav-links">
     <li><a href="#sobre">O Escritório</a></li>
     <li><a href="#areas">Áreas de Atuação</a></li>
-    <li><a href="#faq">Perguntas Frequentes</a></li>
     <li><a href="#contato" class="nav-cta">Agende sua consultoria</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu">
@@ -1342,6 +1309,10 @@
         <div class="stat-num">7<sup>+</sup></div>
         <div class="stat-label"><span class="stat-span">Estados onde atuamos: </span><br>SERGIPE, SANTA CATARINA, PERNAMBUCO,<br> BAHIA, ALAGOAS, RIO GRANDE DO NORTE, DISTRITO FEDERAL</div>
       </div>
+      <!-- <div class="stat">
+        <div class="stat-num">150<sup>+</sup></div>
+        <div class="stat-label">Clientes Atendidos</div>
+      </div> -->
       <div class="stat">
         <div class="stat-num">8<sup></sup></div>
         <div class="stat-label"><span class="stat-span">Áreas de Especialidade</span></div>
@@ -1654,8 +1625,8 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 <section class="faq-section" id="faq">
   <div class="faq-inner">
     <div class="faq-header">
-      <div class="section-label">Perguntas Frequentes</div>
-      <h2 class="section-heading">As <em>principais dúvidas</em> antes da contratação</h2>
+      <div class="section-label">Dúvidas Frequentes</div>
+      <h2 class="section-heading">Perguntas que todo <em>cliente faz</em></h2>
     </div>
     <div class="faq-list">
       <div class="faq-item">
@@ -1742,32 +1713,11 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
       </div>
       <div class="contact-item">
         <div class="contact-item-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23zM5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div class="contact-item-content">
           <h5>Avalie nosso escritório</h5>
           <a href="https://share.google/lbfEVDUp4L3DT42z8" target="_blank" rel="noopener">Clique aqui para avaliar</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            stroke-width="2" 
-            stroke-linecap="round" 
-            stroke-linejoin="round"
-          ><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-        </div>
-        <div class="contact-item-content">
-          <h5>Horário de funcionamento</h5>
-          <p>Não possuímos horário fixo, atendemos somente através de agendamento prévio.</p>
         </div>
       </div>
     </div>
@@ -1832,7 +1782,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <textarea placeholder="Conte-nos sobre a sua situação..."></textarea>
       </div>
       <button type="submit" class="form-submit">Enviar Mensagem</button>
-      <div class="form-group"><label>*RESPONDEREMOS EM ATÉ 24H ÚTEIS</label></div>
     </form>
   </div>
 </section>
@@ -1840,39 +1789,20 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-top">
-    <div class="footer-esq">
     <img src="assets/img/logo-semfundo.png" alt="Logo Freire & Freire" class="logonav" loading="lazy">
-    <div class="divfooter-links">
-    <ul class="footer-links">
-      <li>
-        <!-- LINK INSTAGRAM KARINY -->
-        <a href="https://www.instagram.com/dra.karinyfreire.ss?igsh=NXUxZHpkcjZxYWZ0" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-      </li>
-      <li>
-        <!-- LINK EMAIL -->
-        <a href="mailto:freire.freire.915@gmail.com" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></a>
-      </li>
-      <li>
-        <!-- LINK FACEBOOK -->
-        <a href="" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      </li>
-    </ul>
-    </div>
-    </div>
-    <div class="footer-dir">    
-      <p class="footer-oab">
-      FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA - CNPJ: 00.000.000/0001-00
-      <br> Kariny Souza da Silva Freire - OAB/SE 18.134
-      <br> © 2026 Freire & Freire Advocacia. Todos os direitos reservados.
-      </p>
-    <!-- <p class="footer-copy"></p> -->
-    </div>
+    <!-- <ul class="footer-links">
+      <li><a href="#sobre">O Escritório</a></li>
+      <li><a href="#areas">Áreas de Atuação</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul> -->
+    <p class="footer-oab">
+      <!-- FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA CNPJ:  -->
+      <br> Kariny Souza da Silva Freire – OAB/SE 18.134</p>
+    <p class="footer-copy">© 2026 Freire & Freire Advocacia. Todos os direitos reservados.</p>
   </div>
-  <!-- LINK MATHEUS -->
   <div class="footer-bottom">
     <p class="footer-dev">
-      Desenvolvido por<span class="footer-dev-dot"></span><a href="https://mcodeon.com.br" target="_blank" rel="noopener">MCODEON</a>
+      Desenvolvido por<span class="footer-dev-dot"></span><a href="https://www.instagram.com/mcodeon" target="_blank" rel="noopener">MCODEON</a>
     </p>
   </div>
 </footer>
@@ -1915,6 +1845,10 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
       <path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/>
     </svg>
+    <!-- ícone fechar -->
+    <!-- <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg> -->
   </button>
 
 </div>
