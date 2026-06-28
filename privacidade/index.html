@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — Freire & Freire Advocacia</title>
+  <link rel="icon" type="image/png" href="assets/img/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brown-deep:   #3A2212;
+      --brown-dark:   #4A2C18;
+      --brown-mid:    #5E3820;
+
+      --sec-1: #4E2F1A;
+      --sec-2: #3C2313;
+      --sec-2-card: #331F11;
+      --sec-3: #23150A;
+      --sec-4: #1C1007;
+
+      --gold:         #b8903fea;
+      --gold-light:   #c7a04d;
+      --gold-pale:    #FDF0C0;
+      --gold-dim:     #C49A28;
+      --cream:        #FDF6E8;
+      --cream-dark:   #F2E4C0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--sec-2);
+      color: var(--cream);
+      overflow-x: hidden;
+      width: 100%;
+      cursor: default;
+    }
+    img, svg { max-width: 100%; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--brown-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(44,26,14,0.97);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px; text-decoration: none;
+    }
+    .logonav {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+    }
+    .nav-back {
+      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-light); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+      transition: color 0.25s ease;
+    }
+    .nav-back svg { width: 12px; height: 12px; }
+    .nav-back:hover { color: var(--gold-pale); }
+
+    /* ─── HEADER / HERO ─── */
+    .doc-hero {
+      padding: 170px 70px 70px;
+      background: var(--sec-1);
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .doc-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .doc-hero-label {
+      font-family: 'Cinzel', serif; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.4em; color: var(--gold);
+      text-transform: uppercase;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      margin-bottom: 24px; position: relative; z-index: 1;
+    }
+    .doc-hero-label::before, .doc-hero-label::after {
+      content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+    }
+    .doc-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 300; line-height: 1.15;
+      color: var(--gold-pale);
+      letter-spacing: -0.01em;
+      position: relative; z-index: 1;
+    }
+    .doc-hero h1 em { font-style: italic; color: var(--gold-light); }
+    .doc-hero-updated {
+      font-family: 'EB Garamond', serif; font-style: italic;
+      font-size: 15px; color: rgba(240,226,182,0.55);
+      margin-top: 18px; position: relative; z-index: 1;
+    }
+
+    /* ─── SUMÁRIO ─── */
+    .toc-wrap {
+      background: var(--sec-2-card);
+      padding: 46px 70px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .toc-inner { max-width: 880px; margin: 0 auto; }
+    .toc-title {
+      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-dim); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .toc-title::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold-dim); }
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
+      list-style: none;
+    }
+    .toc-list a {
+      font-size: 15px; color: rgba(240,226,182,0.7);
+      text-decoration: none;
+      display: flex; gap: 10px;
+      transition: color 0.2s ease;
+    }
+    .toc-list a span { color: var(--gold-dim); flex-shrink: 0; }
+    .toc-list a:hover { color: var(--gold-light); }
+
+    /* ─── CONTEÚDO ─── */
+    .doc-content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+    .doc-section {
+      padding-bottom: 52px;
+      margin-bottom: 52px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .doc-section:last-child {
+      border-bottom: none; margin-bottom: 0; padding-bottom: 0;
+    }
+    .doc-section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; color: var(--gold-dim);
+      letter-spacing: 0.1em;
+    }
+    .doc-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400; color: var(--gold-pale);
+      margin: 6px 0 22px;
+      scroll-margin-top: 100px;
+    }
+    .doc-section p {
+      font-size: 16.5px; line-height: 1.95;
+      color: rgba(240,226,182,0.68);
+      margin-bottom: 16px;
+    }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section ul {
+      list-style: none;
+      margin: 18px 0 4px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .doc-section ul li {
+      font-size: 16px; line-height: 1.8;
+      color: rgba(240,226,182,0.68);
+      padding-left: 22px;
+      position: relative;
+    }
+    .doc-section ul li::before {
+      content: ''; position: absolute; left: 0; top: 10px;
+      width: 6px; height: 6px;
+      background: var(--gold-dim);
+      transform: rotate(45deg);
+    }
+    .doc-section ul li strong { color: var(--gold-light); font-weight: 600; }
+    .doc-callout {
+      background: rgba(201,168,76,0.06);
+      border-left: 2px solid var(--gold);
+      padding: 22px 26px;
+      margin-top: 24px;
+    }
+    .doc-callout p {
+      font-size: 15.5px; font-style: italic;
+      color: rgba(240,226,182,0.62);
+      margin-bottom: 0;
+    }
+    .doc-table {
+      width: 100%; margin-top: 22px;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .doc-table-row {
+      display: grid; grid-template-columns: 220px 1fr;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .doc-table-row:last-child { border-bottom: none; }
+    .doc-table-row .label {
+      font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-light); padding: 16px 18px;
+      background: rgba(201,168,76,0.05);
+      border-right: 1px solid rgba(201,168,76,0.1);
+      display: flex; align-items: center;
+    }
+    .doc-table-row .value {
+      font-size: 15px; color: rgba(240,226,182,0.65);
+      padding: 16px 18px; display: flex; align-items: center;
+      line-height: 1.6;
+    }
+
+    /* ─── CONTATO DPO ─── */
+    .dpo-box {
+      background: var(--sec-2-card);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 36px 38px;
+      margin-top: 12px;
+    }
+    .dpo-box-title {
+      font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .dpo-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .dpo-item:last-child { margin-bottom: 0; }
+    .dpo-item-icon {
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .dpo-item-icon svg { width: 15px; height: 15px; }
+    .dpo-item-content p {
+      font-size: 16px; color: var(--cream-dark);
+      line-height: 1.6; margin: 0;
+    }
+    .dpo-item-content a { color: var(--cream-dark); text-decoration: none; }
+    .dpo-item-content a:hover { color: var(--gold-light); }
+    .dpo-item-content span {
+      display: block;
+      font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-dim); margin-bottom: 4px;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 46px; height: 46px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light); text-decoration: none;
+      transition: background 0.25s, border-color 0.25s;
+      z-index: 150;
+    }
+    .back-to-top:hover {
+      background: rgba(201,168,76,0.22);
+      border-color: rgba(201,168,76,0.55);
+    }
+    .back-to-top svg { width: 16px; height: 16px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--sec-4);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 46px 70px 36px;
+    }
+    .footer-top {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; gap: 22px;
+    }
+    .footer-links { display: flex; gap: 28px; list-style: none; justify-content: center; }
+    .footer-links a {
+      font-family: 'Cinzel', serif; font-size: 9.5px;
+      letter-spacing: 0.2em; color: var(--gold-dim);
+      text-decoration: none; transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-oab {
+      font-size: 11.5px; color: var(--gold);
+      letter-spacing: 0.05em; text-align: center;
+    }
+    .footer-bottom {
+      width: 100%;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      margin-top: 28px; padding-top: 22px;
+      display: flex; justify-content: center; align-items: center;
+      gap: 10px;
+    }
+    .footer-dev {
+      font-family: 'EB Garamond', serif; font-size: 12.5px;
+      font-style: italic; color: rgba(201,168,76,0.35);
+      letter-spacing: 0.06em;
+    }
+    .footer-dev a {
+      font-family: 'Cinzel', serif; font-style: normal;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--gold-dim);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      padding-bottom: 1px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .footer-dev a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+    .footer-dev-dot {
+      display: inline-block; width: 3px; height: 3px; border-radius: 50%;
+      background: rgba(201,168,76,0.3); vertical-align: middle; margin: 0 4px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 28px; }
+      .doc-hero { padding: 130px 32px 56px; }
+      .toc-wrap { padding: 38px 32px; }
+      .toc-list { grid-template-columns: minmax(0, 1fr); }
+      .doc-content { padding: 64px 24px 48px; }
+      footer { padding: 40px 28px 32px; }
+    }
+    @media (max-width: 560px) {
+      .nav-logo .logonav { height: 34px; }
+      .nav-back span { display: none; }
+      .doc-hero { padding: 120px 20px 48px; }
+      .doc-hero-label { font-size: 10px; letter-spacing: 0.28em; }
+      .toc-wrap { padding: 32px 20px; }
+      .doc-content { padding: 56px 20px 40px; }
+      .doc-section { padding-bottom: 40px; margin-bottom: 40px; }
+      .doc-section p, .doc-section ul li { font-size: 15.5px; }
+      .doc-table-row { grid-template-columns: minmax(0, 1fr); }
+      .doc-table-row .label { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+      .dpo-box { padding: 26px 22px; }
+      .back-to-top { bottom: 18px; right: 18px; width: 42px; height: 42px; }
+      footer { padding: 36px 20px 28px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-semfundo.png" alt="Logo Freire & Freire" class="logonav" loading="eager">
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9,2 4,7 9,12"/>
+    </svg>
+    <span>Voltar ao site</span>
+  </a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="doc-hero">
+  <div class="doc-hero-label">LGPD · Lei nº 13.709/2018</div>
+  <h1>Política de <em>Privacidade</em></h1>
+  <p class="doc-hero-updated">Última atualização: 27 de junho de 2026</p>
+</header>
+
+<!-- ══ SUMÁRIO ══ -->
+<div class="toc-wrap">
+  <div class="toc-inner">
+    <p class="toc-title">Sumário</p>
+    <ul class="toc-list">
+      <li><a href="#introducao"><span>01</span> Introdução</a></li>
+      <li><a href="#controlador"><span>02</span> Quem é o controlador dos dados</a></li>
+      <li><a href="#dados-coletados"><span>03</span> Quais dados coletamos</a></li>
+      <li><a href="#finalidade"><span>04</span> Para que usamos seus dados</a></li>
+      <li><a href="#base-legal"><span>05</span> Base legal do tratamento</a></li>
+      <li><a href="#compartilhamento"><span>06</span> Compartilhamento de dados</a></li>
+      <li><a href="#cookies"><span>07</span> Cookies e tecnologias de rastreamento</a></li>
+      <li><a href="#seguranca"><span>08</span> Segurança da informação</a></li>
+      <li><a href="#retencao"><span>09</span> Tempo de retenção dos dados</a></li>
+      <li><a href="#direitos"><span>10</span> Direitos do titular dos dados</a></li>
+      <li><a href="#sigilo"><span>11</span> Sigilo advocatício</a></li>
+      <li><a href="#menores"><span>12</span> Crianças e adolescentes</a></li>
+      <li><a href="#alteracoes"><span>13</span> Alterações desta política</a></li>
+      <li><a href="#contato"><span>14</span> Contato e encarregado (DPO)</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CONTEÚDO ══ -->
+<main class="doc-content">
+
+  <section class="doc-section" id="introducao">
+    <span class="doc-section-num">01</span>
+    <h2>Introdução</h2>
+    <p>
+      A <strong style="color:var(--gold-light)">Freire Sociedade Individual de Advocacia</strong> ("Freire & Freire Advocacia", "nós" ou "escritório") respeita a privacidade de quem visita nosso site e utiliza nossos canais de atendimento. Esta Política de Privacidade explica, de forma clara e objetiva, quais dados pessoais coletamos, por que os coletamos, como os utilizamos, com quem podemos compartilhá-los e quais direitos você possui sobre essas informações.
+    </p>
+    <p>
+      Este documento foi elaborado em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD) e demais normas aplicáveis ao exercício da advocacia, incluindo o Código de Ética e Disciplina da OAB.
+    </p>
+  </section>
+
+  <section class="doc-section" id="controlador">
+    <span class="doc-section-num">02</span>
+    <h2>Quem é o controlador dos dados</h2>
+    <p>
+      Para os fins da LGPD, o controlador dos dados pessoais coletados através deste site é:
+    </p>
+    <div class="doc-table">
+      <div class="doc-table-row">
+        <div class="label">Razão Social</div>
+        <div class="value">Freire Sociedade Individual de Advocacia</div>
+      </div>
+      <div class="doc-table-row">
+        <div class="label">CNPJ</div>
+        <div class="value">00.000.000/0001-00</div>
+      </div>
+      <div class="doc-table-row">
+        <div class="label">Responsável Técnica</div>
+        <div class="value">Kariny Souza da Silva Freire — OAB/SE 18.134</div>
+      </div>
+      <div class="doc-table-row">
+        <div class="label">Endereço</div>
+        <div class="value">Rua Pacatuba, 254 — Centro — Aracaju/SE — Edifício Paulo Figueiredo, Sala 915</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="dados-coletados">
+    <span class="doc-section-num">03</span>
+    <h2>Quais dados coletamos</h2>
+    <p>Coletamos apenas os dados necessários para prestar nossos serviços e melhorar sua experiência em nosso site:</p>
+    <ul>
+      <li><strong>Dados de identificação e contato:</strong> nome completo, telefone/WhatsApp e e-mail, fornecidos voluntariamente ao preencher nosso formulário de contato.</li>
+      <li><strong>Dados sobre o caso:</strong> área jurídica de interesse e descrição da situação relatada, quando você opta por compartilhá-la no formulário.</li>
+      <li><strong>Dados de navegação:</strong> endereço IP, tipo de dispositivo, navegador e páginas visitadas, coletados automaticamente para fins estatísticos e de segurança.</li>
+      <li><strong>Comunicações:</strong> conteúdo de mensagens trocadas via WhatsApp, e-mail ou telefone quando você inicia contato por esses canais.</li>
+    </ul>
+    <div class="doc-callout">
+      <p>Não coletamos dados sensíveis (como origem racial, convicção religiosa ou dados de saúde) através do formulário do site, exceto quando você mesmo os inclui voluntariamente na descrição do seu caso — informação que será tratada com o mesmo sigilo aplicável à relação advogado-cliente.</p>
+    </div>
+  </section>
+
+  <section class="doc-section" id="finalidade">
+    <span class="doc-section-num">04</span>
+    <h2>Para que usamos seus dados</h2>
+    <p>Utilizamos seus dados pessoais exclusivamente para as seguintes finalidades:</p>
+    <ul>
+      <li>Responder aos contatos e solicitações de consulta enviados pelo site, WhatsApp, e-mail ou telefone;</li>
+      <li>Avaliar a viabilidade jurídica do caso relatado e preparar a estratégia de atendimento;</li>
+      <li>Manter o relacionamento contratual com clientes já atendidos;</li>
+      <li>Cumprir obrigações legais e regulatórias aplicáveis à advocacia;</li>
+      <li>Melhorar a navegação e o desempenho do site;</li>
+      <li>Prevenir fraudes e garantir a segurança das informações.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="base-legal">
+    <span class="doc-section-num">05</span>
+    <h2>Base legal do tratamento</h2>
+    <p>
+      O tratamento dos seus dados pessoais se baseia, conforme o caso, nas seguintes hipóteses legais previstas no art. 7º da LGPD: <strong style="color:var(--gold-light)">consentimento</strong> do titular (ao preencher voluntariamente o formulário de contato), <strong style="color:var(--gold-light)">execução de contrato</strong> ou procedimentos preliminares a ele (quando há relação cliente-escritório), <strong style="color:var(--gold-light)">cumprimento de obrigação legal ou regulatória</strong>, e <strong style="color:var(--gold-light)">exercício regular de direitos</strong> em processo judicial, administrativo ou arbitral.
+    </p>
+  </section>
+
+  <section class="doc-section" id="compartilhamento">
+    <span class="doc-section-num">06</span>
+    <h2>Compartilhamento de dados</h2>
+    <p>
+      Seus dados pessoais não são vendidos a terceiros. Eles podem ser compartilhados, de forma restrita e estritamente necessária, com:
+    </p>
+    <ul>
+      <li><strong>Tribunais e órgãos públicos</strong>, quando exigido para o andamento de processos judiciais ou administrativos;</li>
+      <li><strong>Prestadores de serviços de tecnologia</strong>, como provedores de hospedagem, e-mail e ferramentas de comunicação (WhatsApp Business, Google Workspace), sempre sob obrigação contratual de confidencialidade;</li>
+      <li><strong>Profissionais parceiros</strong>, somente quando necessário para a defesa técnica do seu caso e com seu conhecimento prévio;</li>
+      <li><strong>Autoridades competentes</strong>, quando exigido por lei, ordem judicial ou determinação regulatória.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="cookies">
+    <span class="doc-section-num">07</span>
+    <h2>Cookies e tecnologias de rastreamento</h2>
+    <p>
+      Este site pode utilizar cookies próprios e de terceiros (como Google Maps, para exibição de localização, e ferramentas de análise de tráfego) com a finalidade de viabilizar funcionalidades, lembrar preferências e entender como os visitantes utilizam nosso site.
+    </p>
+    <p>
+      Você pode gerenciar ou desativar cookies diretamente nas configurações do seu navegador. Atenção: a desativação de determinados cookies pode afetar o funcionamento de algumas funcionalidades do site, como a exibição do mapa de localização.
+    </p>
+  </section>
+
+  <section class="doc-section" id="seguranca">
+    <span class="doc-section-num">08</span>
+    <h2>Segurança da informação</h2>
+    <p>
+      Adotamos medidas técnicas e organizacionais compatíveis com o porte do escritório para proteger seus dados pessoais contra acessos não autorizados, perda, alteração ou divulgação indevida, incluindo conexão criptografada (HTTPS), controle de acesso às informações e armazenamento em provedores com práticas reconhecidas de segurança.
+    </p>
+    <p>
+      Apesar dos esforços empregados, nenhum sistema é absolutamente livre de riscos. Caso identifiquemos qualquer incidente de segurança que possa acarretar risco relevante aos titulares, comunicaremos os afetados e a Autoridade Nacional de Proteção de Dados (ANPD), conforme exigido pela LGPD.
+    </p>
+  </section>
+
+  <section class="doc-section" id="retencao">
+    <span class="doc-section-num">09</span>
+    <h2>Tempo de retenção dos dados</h2>
+    <p>
+      Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades descritas nesta política, ou conforme exigido por obrigações legais — incluindo os prazos de guarda de documentos relativos a processos judiciais e prazos prescricionais aplicáveis à relação contratual. Após esse período, os dados são eliminados ou anonimizados de forma segura.
+    </p>
+  </section>
+
+  <section class="doc-section" id="direitos">
+    <span class="doc-section-num">10</span>
+    <h2>Direitos do titular dos dados</h2>
+    <p>Nos termos do art. 18 da LGPD, você tem o direito de solicitar, mediante requisição ao nosso canal de contato:</p>
+    <ul>
+      <li>Confirmação da existência de tratamento de dados;</li>
+      <li>Acesso aos seus dados pessoais;</li>
+      <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a lei;</li>
+      <li>Portabilidade dos dados a outro fornecedor de serviço;</li>
+      <li>Eliminação dos dados tratados com base no consentimento;</li>
+      <li>Informação sobre compartilhamento de dados com terceiros;</li>
+      <li>Revogação do consentimento, a qualquer momento;</li>
+      <li>Revisão de decisões automatizadas que afetem seus interesses.</li>
+    </ul>
+    <p>
+      Para exercer qualquer um desses direitos, entre em contato pelos canais indicados na seção 14 deste documento. Responderemos sua solicitação dentro dos prazos estabelecidos pela legislação aplicável.
+    </p>
+  </section>
+
+  <section class="doc-section" id="sigilo">
+    <span class="doc-section-num">11</span>
+    <h2>Sigilo advocatício</h2>
+    <p>
+      Informações relacionadas ao seu caso, compartilhadas no formulário de contato ou em qualquer canal de comunicação com o escritório, estão adicionalmente protegidas pelo <strong style="color:var(--gold-light)">sigilo profissional advocatício</strong>, garantido pelo Estatuto da Advocacia (Lei nº 8.906/1994) e pelo Código de Ética e Disciplina da OAB. Esse sigilo é mantido independentemente da formalização ou não de um contrato de prestação de serviços.
+    </p>
+  </section>
+
+  <section class="doc-section" id="menores">
+    <span class="doc-section-num">12</span>
+    <h2>Crianças e adolescentes</h2>
+    <p>
+      Nosso site não é direcionado a crianças ou adolescentes e não coletamos intencionalmente dados pessoais de menores de 18 anos sem o consentimento específico e em destaque de um responsável legal, conforme exige a LGPD.
+    </p>
+  </section>
+
+  <section class="doc-section" id="alteracoes">
+    <span class="doc-section-num">13</span>
+    <h2>Alterações desta política</h2>
+    <p>
+      Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas ou na legislação aplicável. A data da última atualização está indicada no topo desta página. Recomendamos a revisão periódica deste documento.
+    </p>
+  </section>
+
+  <section class="doc-section" id="contato">
+    <span class="doc-section-num">14</span>
+    <h2>Contato e encarregado (DPO)</h2>
+    <p>
+      Para exercer seus direitos como titular de dados, esclarecer dúvidas sobre esta política ou relatar qualquer preocupação relacionada à privacidade, entre em contato através dos canais abaixo:
+    </p>
+    <div class="dpo-box">
+      <p class="dpo-box-title">Canais de Atendimento</p>
+
+      <div class="dpo-item">
+        <div class="dpo-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="dpo-item-content">
+          <span>E-mail</span>
+          <a href="mailto:freire.freire.915@gmail.com">freire.freire.915@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="dpo-item">
+        <div class="dpo-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.69A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="dpo-item-content">
+          <span>Telefone / WhatsApp</span>
+          <p>(79) 3019-9019 &nbsp;·&nbsp; (79) 9 9671-8080</p>
+        </div>
+      </div>
+
+      <div class="dpo-item">
+        <div class="dpo-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="dpo-item-content">
+          <span>Endereço</span>
+          <p>Rua Pacatuba, 254 — Centro — Aracaju/SE</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 22px;">
+      Caso entenda que seus dados não foram tratados de acordo com a legislação vigente, você também pode apresentar reclamação junto à Autoridade Nacional de Proteção de Dados (ANPD), através do site <strong style="color:var(--gold-light)">gov.br/anpd</strong>.
+    </p>
+  </section>
+
+</main>
+
+<!-- ══ BACK TO TOP ══ -->
+<a href="#" class="back-to-top" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="2,9 7,4 12,9"/>
+  </svg>
+</a>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-top">
+    <img src="logo-semfundo.png" alt="Logo Freire & Freire" class="logonav" loading="lazy">
+    <ul class="footer-links">
+      <li><a href="https://www.instagram.com/dra.karinyfreire.ss?igsh=NXUxZHpkcjZxYWZ0" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:freire.freire.915@gmail.com">E-mail</a></li>
+      <li><a href="index.html">Voltar ao site</a></li>
+    </ul>
+    <p class="footer-oab">
+      FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA — CNPJ: 00.000.000/0001-00
+      <br> Kariny Souza da Silva Freire — OAB/SE 18.134
+      <br> © 2026 Freire & Freire Advocacia. Todos os direitos reservados.
+    </p>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-dev">
+      Desenvolvido por<span class="footer-dev-dot"></span><a href="https://mcodeon.com.br" target="_blank" rel="noopener">MCODEON</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

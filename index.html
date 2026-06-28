@@ -46,7 +46,9 @@
       color: var(--cream);
       overflow-x: hidden;
       cursor: default;
+      width: 100%;
     }
+    img, svg { max-width: 100%; }
 
     /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; }
@@ -225,6 +227,11 @@
     .hero-stats {
       margin-top: 48px;
       display: flex; gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1 1 200px;
+      min-width: 0;
     }
     .stat-num {
       font-family: 'Cormorant Garamond', serif;
@@ -238,6 +245,7 @@
       font-family: 'Cinzel', serif; font-size: 16px;
       letter-spacing: 0.22em; color: var(--gold-dim);
       text-transform: uppercase; margin-top: 4px;
+      overflow-wrap: break-word; word-break: break-word;
     }
     .stat-span{
       font-family: 'Cinzel', serif; font-size: 19px;
@@ -458,6 +466,7 @@
       grid-column: 1 / -1;
       margin-top: 72px;
       position: relative; z-index: 1;
+      min-width: 0;
     }
     .about-carousel-label {
       font-family: 'Cinzel', serif; font-size: 9px;
@@ -870,6 +879,7 @@
     .contact-item-content p, .contact-item-content a {
       font-size: 17.5px; color: var(--cream-dark);
       text-decoration: none; line-height: 1.6;
+      overflow-wrap: anywhere;
     }
     .contact-item-content a:hover { color: var(--gold-light); }
 
@@ -907,6 +917,62 @@
     }
     .form-group select option { background: var(--brown-deep); color: var(--cream); }
     .form-group textarea { min-height: 130px; }
+
+    /* ─── CHECKBOX LGPD ─── */
+    .form-checkbox {
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-top: 4px; cursor: pointer;
+      -webkit-user-select: none; user-select: none;
+    }
+    .form-checkbox input[type="checkbox"] {
+      position: absolute;
+      opacity: 0; width: 0; height: 0;
+      pointer-events: none;
+    }
+    .checkbox-box {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      margin-top: 2px;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .checkbox-box svg {
+      width: 12px; height: 12px;
+      color: var(--brown-deep);
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .form-checkbox:hover .checkbox-box {
+      border-color: rgba(201,168,76,0.7);
+    }
+    .form-checkbox input[type="checkbox"]:checked + .checkbox-box {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-color: var(--gold);
+    }
+    .form-checkbox input[type="checkbox"]:checked + .checkbox-box svg {
+      opacity: 1; transform: scale(1);
+    }
+    .form-checkbox input[type="checkbox"]:focus-visible + .checkbox-box {
+      outline: 1px solid var(--gold-light);
+      outline-offset: 2px;
+    }
+    .checkbox-label {
+      font-size: 15px; line-height: 1.6;
+      color: rgba(240,226,182,0.65);
+      padding-top: 1px;
+    }
+    .checkbox-label a {
+      color: var(--gold-light); text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.35);
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .checkbox-label a:hover {
+      color: var(--gold-pale); border-color: var(--gold-pale);
+    }
+
     .form-submit {
       font-family: 'Cinzel', serif; font-size: 13px;
       font-weight: 700; letter-spacing: 0.25em;
@@ -914,10 +980,15 @@
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
       color: var(--brown-deep); border: none;
       padding: 18px 40px; cursor: pointer;
-      transition: opacity 0.3s; margin-top: 8px;
+      transition: opacity 0.3s, filter 0.3s; margin-top: 8px;
       align-self: flex-start;
     }
     .form-submit:hover { opacity: 0.88; }
+    .form-submit:disabled {
+      opacity: 0.4; cursor: not-allowed;
+      filter: grayscale(40%);
+    }
+    .form-submit:disabled:hover { opacity: 0.4; }
 
     /* ─── FOOTER ─── */
     footer {
@@ -1061,7 +1132,7 @@
       .float-contact { bottom: 20px; right: 20px; }
       .float-main-btn { width: 48px; height: 48px; }
       .float-main-btn svg { width: 24px; height: 24px; }
-      .float-option { padding: 8px 12px 8px 10px; }
+      .float-option { padding: 8px 12px 8px 10px; white-space: normal; max-width: calc(100vw - 40px); }
       .float-option-icon { width: 28px; height: 28px; }
       .float-option-icon svg { width: 14px; height: 14px; }
     }
@@ -1220,11 +1291,11 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { grid-template-columns: 1fr;min-height: 0; min-height: auto; }
+      .hero { grid-template-columns: minmax(0, 1fr);min-height: 0; min-height: auto; }
       .hero::before { display: none; }
       .hero-left {
         padding: 110px 40px 200px;
-        align-items: flex-start;
+        align-items: center;
       }
       .hero-right { min-height: 55vw; max-height: 70vw; }
       .logohero { max-width: 340px; }
@@ -1233,7 +1304,7 @@
         display: flex; gap: 32px; flex-wrap: wrap;
       }
 
-      .about { grid-template-columns: 1fr; padding: 80px 40px; gap: 50px; }
+      .about { grid-template-columns: minmax(0, 1fr); padding: 80px 40px; gap: 50px; }
       .about::before { font-size: 160px; }
       .about-carousel-wrap { margin-top: 48px; }
 
@@ -1247,7 +1318,7 @@
 
       .faq-section { padding: 80px 40px; }
 
-      .contact { grid-template-columns: 1fr; padding: 80px 40px; gap: 60px; }
+      .contact { grid-template-columns: minmax(0, 1fr); padding: 80px 40px; gap: 60px; }
 
       footer { padding: 40px 32px; }
       .footer-top { grid-template-columns: 1fr; justify-items: center; gap: 20px; }
@@ -1255,6 +1326,8 @@
       .footer-links { flex-wrap: wrap; justify-content: center; }
       .footer-copy { justify-self: center; text-align: center; }
       .footer-oab { justify-self: center; text-align: center; }
+      .footer-dir { padding-left: 0; }
+      .footer-esq { border-right: none; }
       .footer-bottom { margin-top: 8px; }
       /* Make the photo frame larger (less inset) on smaller screens */
       .photo-frame {
@@ -1289,7 +1362,8 @@
 
       .hero-left {
         padding: 100px 24px 180px;
-        text-align: left;
+        text-align: center;
+        align-items: center;
       }
       .hero-eyebrow { font-size: 11px; }
       .logohero { max-width: 260px; }
@@ -1297,7 +1371,7 @@
       .hero-desc { font-size: 17px; max-width: 100%; }
       .btn-primary { font-size: 11px; padding: 15px 28px; }
       .btn-secondary { font-size: 12px; }
-      .hero-actions { gap: 14px; flex-wrap: wrap; }
+      .hero-actions { gap: 14px; flex-wrap: wrap; justify-content: center; }
       .hero-stats { gap: 24px; margin-top: 36px; }
       .stat-num { font-size: 38px; }
       .hero-right { min-height: 65vw; }
@@ -1323,6 +1397,7 @@
       .faq-item.open .faq-answer { padding: 0 24px 24px; }
 
       .contact { padding: 64px 24px; gap: 48px; }
+      .contact-info { grid-template-columns: 1fr; }
       .contact-intro { font-size: 16px; margin: 24px 0 36px; }
       .contact-item-content p,
       .contact-item-content a { font-size: 15px; }
@@ -1330,6 +1405,7 @@
       .form-group input,
       .form-group textarea,
       .form-group select { font-size: 15px; }
+      .form-row { grid-template-columns: 1fr; }
 
       footer { padding: 36px 20px; }
       .footer-links a { font-size: 9px; }
@@ -1420,7 +1496,7 @@
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">7<sup>+</sup></div>
-        <div class="stat-label"><span class="stat-span">Estados onde atuamos: </span><br>SERGIPE, SANTA CATARINA, PERNAMBUCO,<br> BAHIA, ALAGOAS, RIO GRANDE DO NORTE, DISTRITO FEDERAL</div>
+        <div class="stat-label"><span class="stat-span">Estados onde atuamos: </span><br>SERGIPE, SANTA CATARINA, PERNAMBUCO, BAHIA, ALAGOAS, RIO GRANDE DO NORTE, DISTRITO FEDERAL</div>
       </div>
       <div class="stat">
         <div class="stat-num">8<sup></sup></div>
@@ -1436,7 +1512,7 @@
         <div class="photo-frame-corner-bl"></div>
         <span class="photo-frame-text">Se chegamos até aqui foi porque nos apoiamos nos ombros dos gigantes. Isaac Newton </span>
       </div>
-      <img src="assets/img/Design sem nome.png" alt="Foto dos advogados" id="advfoto">
+      <img src="assets/img/Foto dos advogados.png" alt="Foto dos advogados" id="advfoto">
     </div>
     <div class="hero-right-overlay"></div>
     <!-- <div class="hero-badge">
@@ -1500,10 +1576,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
           <span class="carousel-card-caption">Escritório</span>
         </div>
         <div class="carousel-card">
-          <img src="assets/img/Foto do escritório 02.jpg" alt="Sala de atendimento" loading="lazy">
-          <span class="carousel-card-caption">Atendimento</span>
-        </div>
-        <div class="carousel-card">
           <img src="assets/img/Foto da equipe.jpeg" alt="Equipe" loading="lazy">
           <span class="carousel-card-caption">Nossa Equipe</span>
         </div>
@@ -1512,12 +1584,48 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
           <span class="carousel-card-caption">Dra. Kariny</span>
         </div>
         <div class="carousel-card">
+          <img src="assets/img/Foto da equipe-02.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">dentro do nosso escritório</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Foto do escritório 02.jpg" alt="Sala de atendimento" loading="lazy">
+          <span class="carousel-card-caption">Atendimento</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Nossa estética.jpeg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Nossa estética</span>
+        </div>
+        <div class="carousel-card">
           <img src="assets/img/Foto da bibilioteca.jpg" alt="Biblioteca jurídica" loading="lazy">
           <span class="carousel-card-caption">Biblioteca</span>
         </div>
         <div class="carousel-card">
+          <img src="assets/img/Mais da nossa equipe-04.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Mais da nossa equipe</span>
+        </div>
+        <div class="carousel-card">
           <img src="assets/img/Foto do escritório 03.jpg" alt="Biblioteca jurídica" loading="lazy">
           <span class="carousel-card-caption">MAIS DO NOSSO Escritório</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Mais da nossa equipe-01.jpeg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Mais da nossa equipe</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Mais da nossa equipe-02.jpeg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Mais da nossa equipe</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Mais da nossa equipe-03.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Mais da nossa equipe</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Inauguracao-01.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Nossa inauguração</span>
+        </div>
+        <div class="carousel-card">
+          <img src="assets/img/Inauguracao-02.jpg" alt="Biblioteca jurídica" loading="lazy">
+          <span class="carousel-card-caption">Nossa inauguração</span>
         </div>
       </div>
     </div>
@@ -2038,7 +2146,16 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <label>Descreva brevemente seu caso</label>
         <textarea placeholder="Conte-nos sobre a sua situação..."></textarea>
       </div>
-      <button type="submit" class="form-submit">Enviar Mensagem</button>
+      <label for="checklgpd" class="form-checkbox">
+        <input type="checkbox" name="checklgpd" id="checklgpd">
+        <span class="checkbox-box">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,7.5 5.5,11 12,3"/>
+          </svg>
+        </span>
+        <span class="checkbox-label">Li e concordo com os termos de <a href="privacidade/index.html" target="_blank" rel="noopener">Privacidade</a></span>
+      </label>
+      <button type="submit" class="form-submit" id="formSubmitBtn" disabled>Enviar Mensagem</button>
       <div class="form-group"><label>*RESPONDEREMOS EM ATÉ 24H ÚTEIS</label></div>
     </form>
   </div>
@@ -2228,7 +2345,14 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 
     buildDots();
     goTo(0);
-    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        buildDots();
+        goTo(0);
+      }
+    });
   })();
 
   // FAQ accordion
@@ -2240,6 +2364,15 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Checkbox LGPD — habilita o botão de envio somente quando marcado
+  const lgpdCheckbox = document.getElementById('checklgpd');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  if (lgpdCheckbox && submitBtn) {
+    lgpdCheckbox.addEventListener('change', () => {
+      submitBtn.disabled = !lgpdCheckbox.checked;
+    });
+  }
 </script>
 </body>
 </html>
