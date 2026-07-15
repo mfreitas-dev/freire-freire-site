@@ -1,0 +1,14 @@
+# robots.txt — freireefreire.adv.br
+# Gerado em: 2026-07-15
+
+User-agent: *
+Allow: /
+
+# Bloquear assets desnecessários para indexação
+Disallow: /assets/css/
+Disallow: /assets/js/
+
+# Permitir imagens explicitamente (importante para Google Imagens)
+Allow: /assets/img/
+
+Sitemap: https://freireefreire.adv.br/sitemap.xml
