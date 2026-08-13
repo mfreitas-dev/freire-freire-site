@@ -101,7 +101,7 @@
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Áreas de Atuação",
+          "name": "Especialidades",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direito Civil" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direito Trabalhista" } },
@@ -150,7 +150,7 @@
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Início",              "item": "https://freireefreire.adv.br/" },
             { "@type": "ListItem", "position": 2, "name": "O Escritório",        "item": "https://freireefreire.adv.br/#sobre" },
-            { "@type": "ListItem", "position": 3, "name": "Áreas de Atuação",   "item": "https://freireefreire.adv.br/#areas" },
+            { "@type": "ListItem", "position": 3, "name": "Especialidades",   "item": "https://freireefreire.adv.br/#areas" },
             { "@type": "ListItem", "position": 4, "name": "Perguntas Frequentes","item": "https://freireefreire.adv.br/#faq" },
             { "@type": "ListItem", "position": 5, "name": "Contato",             "item": "https://freireefreire.adv.br/#contato" }
           ]
@@ -197,8 +197,10 @@
 <div class="nav-mobile-menu" id="mobileMenu">
   <img src="assets/img/logo-semfundo.webp" alt="Freire & Freire" class="nav-mobile-logo" loading="lazy">
   <ul>
-    <li><a href="#sobre" onclick="closeMobileMenu()">O Escritório</a></li>
-    <li><a href="#areas" onclick="closeMobileMenu()">Áreas de Atuação</a></li>
+    <li><a href="#sobre" onclick="closeMobileMenu()">Sobre</a></li>
+    <li><a href="#areas" onclick="closeMobileMenu()">Especialidades</a></li>
+    <li><a href="#processo" onclick="closeMobileMenu()">Mais procuradas</a></li>
+    <li><a href="#diferenciais" onclick="closeMobileMenu()">Diferenciais</a></li>
     <li><a href="#faq" onclick="closeMobileMenu()">Perguntas Frequentes</a></li>
   </ul>
   <a href="#contato" class="mobile-cta" onclick="closeMobileMenu()">Agendar Consultoria</a>
@@ -210,8 +212,10 @@
     <img src="assets/img/logo-semfundo.webp" alt="Logo Freire & Freire" class="logonav" loading="eager">
   </a>
   <ul class="nav-links">
-    <li><a href="#sobre">O Escritório</a></li>
-    <li><a href="#areas">Áreas de Atuação</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#areas">Especialidades</a></li>
+    <li><a href="#processo">Mais procuradas</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
     <li><a href="#faq">Perguntas Frequentes</a></li>
     <li><a href="#contato" class="nav-cta">Agende sua consultoria</a></li>
   </ul>
@@ -250,7 +254,7 @@
       <div class="photo-frame">
         <div class="photo-frame-corner-tr"></div>
         <div class="photo-frame-corner-bl"></div>
-        <span class="photo-frame-text">Se chegamos até aqui foi porque nos apoiamos nos ombros dos gigantes. Isaac Newton </span>
+        <span class="photo-frame-text">Se chegamos até aqui foi porque nos apoiamos nos ombros dos gigantes.<br><span class="isaac">Isaac Newton</span></span>
       </div>
       <img src="assets/img/Foto dos advogados.png" alt="Foto dos advogados" id="advfoto">
     </div>
@@ -276,22 +280,22 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
   <div class="about-right">
     <div class="about-values">
       <div class="value-card">
-        <div class="value-num">01</div>
+        <!-- <div class="value-num">01</div> -->
         <div class="value-title">Ética</div>
         <p class="value-text">Conduta irrepreensível em todas as esferas da prática jurídica.</p>
       </div>
       <div class="value-card">
-        <div class="value-num">02</div>
+        <!-- <div class="value-num">02</div> -->
         <div class="value-title">Comprometimento</div>
         <p class="value-text">Total dedicação à causa e ao interesse de cada cliente.</p>
       </div>
       <div class="value-card">
-        <div class="value-num">03</div>
+        <!-- <div class="value-num">03</div> -->
         <div class="value-title">Excelência</div>
         <p class="value-text">Busca constante pela melhor solução, com rigor técnico.</p>
       </div>
       <div class="value-card">
-        <div class="value-num">04</div>
+        <!-- <div class="value-num">04</div> -->
         <div class="value-title">Proximidade</div>
         <p class="value-text">Atendimento personalizado que coloca o cliente em primeiro lugar.</p>
       </div>
@@ -373,7 +377,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
   </div>
   <div class="areas-grid">
     <div class="area-card">
-      <div class="area-card-num">01</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="8" y="6" width="24" height="30" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <line x1="13" y1="14" x2="27" y2="14" stroke="currentColor" stroke-width="1.2"/>
@@ -381,38 +384,34 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <line x1="13" y1="24" x2="21" y2="24" stroke="currentColor" stroke-width="1.2"/>
       </svg>
       <div class="area-title">Direito Civil</div>
-      <p class="area-text">Atuamos em contratos, responsabilidade civil, divórcio, guarda e alimentos, reconhecimento de paternidade, inventário e partilha de bens, além de questões possessórias e de propriedade. Defendemos seus interesses em litígios e também na elaboração preventiva de acordos sólidos.</p>
+      <p class="area-text">Atuamos em contratos, responsabilidade civil, divórcio, guarda e alimentos, reconhecimento de paternidade, inventário e partilha de bens, além de questões possessórias e de propriedade. </p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">02</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 6L8 12v8c0 7 5 13 12 15 7-2 12-8 12-15v-8L20 6z" stroke="currentColor" stroke-width="1.5"/>
         <polyline points="15,20 18,23 25,16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
       <div class="area-title">Direito Trabalhista</div>
-      <p class="area-text">Representamos empregados e empregadores em rescisões, cobranças de verbas rescisórias, horas extras, equiparação salarial, assédio moral e sexual, acidente de trabalho e doenças ocupacionais. Oferecemos também consultoria preventiva para empresas que buscam conformidade com a CLT e redução de passivo trabalhista.</p>
+      <p class="area-text">Representamos empregados e empregadores em rescisões, cobranças de verbas rescisórias, horas extras, equiparação salarial, assédio moral e sexual, acidente de trabalho e doenças ocupacionais. Oferecemos também consultoria preventiva para empresas.</p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">03</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 6h16M12 34h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M12 6c0 8 6 9 6 14s-6 6-6 14M28 6c0 8-6 9-6 14s6 6 6 14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         <circle cx="20" cy="20" r="1.4" fill="currentColor"/>
       </svg>
       <div class="area-title">Direito Previdenciário</div>
-      <p class="area-text">Atuamos na concessão e revisão de benefícios junto ao INSS: aposentadoria por idade, tempo de contribuição e especial, auxílio por incapacidade, BPC/LOAS, pensão por morte e aposentadoria por invalidez. Combatemos negativas indevidas e lutamos pela revisão de benefícios concedidos a menor.</p>
+      <p class="area-text">Atuamos na concessão e revisão de benefícios junto ao INSS: aposentadoria por idade, tempo de contribuição e especial, auxílio por incapacidade, BPC/LOAS, pensão por morte e aposentadoria por invalidez.</p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">04</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 6a7 7 0 100 14A7 7 0 0020 6z" stroke="currentColor" stroke-width="1.5"/>
         <path d="M8 34c0-5.5 5.4-10 12-10s12 4.5 12 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
       <div class="area-title">Direito do Consumidor</div>
-      <p class="area-text">Defendemos consumidores em casos de cobranças indevidas, negativações injustas no SPC/Serasa, produtos com vício ou defeito, contratos com cláusulas abusivas, propaganda enganosa e falhas na prestação de serviços. Buscamos indenizações por danos materiais e morais junto a fornecedores e prestadores.</p>
+      <p class="area-text">Defendemos consumidores em casos de cobranças indevidas, negativações injustas no SPC/Serasa, produtos com vício ou defeito, contratos com cláusulas abusivas, propaganda enganosa e falhas na prestação de serviços.</p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">05</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="16" r="8" stroke="currentColor" stroke-width="1.5"/>
         <line x1="20" y1="8" x2="20" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -423,20 +422,18 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <path d="M14 28l-4 6h20l-4-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
       </svg>
       <div class="area-title">Direito Administrativo</div>
-      <p class="area-text">Assessoramos servidores públicos, empresas e particulares em processos licitatórios, impugnações de editais, recursos administrativos, processos disciplinares, concursos públicos e contratos com o poder público. Atuamos também na contestação de atos administrativos ilegais e no controle da legalidade da Administração.</p>
+      <p class="area-text">Assessoramos servidores públicos, empresas e particulares em processos licitatórios, impugnações de editais, recursos administrativos, processos disciplinares, concursos públicos e contratos com o poder público.</p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">06</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 5L7 11v9c0 8 5.5 15 13 17 7.5-2 13-9 13-17v-9L20 5z" stroke="currentColor" stroke-width="1.5"/>
         <line x1="15" y1="20" x2="25" y2="20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         <line x1="20" y1="15" x2="20" y2="25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
       <div class="area-title">Direito Criminal</div>
-      <p class="area-text">Prestamos defesa técnica em inquéritos policiais e ações penais, habeas corpus, crimes contra a pessoa, patrimônio, honra e trânsito, crimes econômicos e financeiros. Atuamos também em medidas cautelares, liberdade provisória, progressão de regime e revisão criminal, garantindo o pleno exercício da ampla defesa.</p>
+      <p class="area-text">Prestamos defesa técnica em inquéritos policiais e ações penais, habeas corpus, crimes contra a pessoa, patrimônio, honra e trânsito, crimes econômicos e financeiros. Atuamos também em medidas cautelares, liberdade provisória, progressão de regime e revisão criminal.</p>
     </div>
     <div class="area-card">
-      <div class="area-card-num">07</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="6" y="16" width="28" height="18" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <path d="M6 20h28" stroke="currentColor" stroke-width="1.2"/>
@@ -445,11 +442,10 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <line x1="20" y1="24" x2="20" y2="30" stroke="currentColor" stroke-width="1"/>
       </svg>
       <div class="area-title">Direito Bancário</div>
-      <p class="area-text">Atuamos na revisão de contratos com juros abusivos, contestação de cobranças indevidas, cancelamento de dívidas prescritas, negativações irregulares, fraudes bancárias e empréstimos consignados descontados sem autorização. Também patrocinamos ações revisionais de financiamentos de veículos e imóveis com cláusulas leoninas.</p>
+      <p class="area-text">Atuamos na revisão de contratos com juros abusivos, contestação de cobranças indevidas, cancelamento de dívidas prescritas, negativações irregulares, fraudes bancárias e empréstimos consignados descontados sem autorização.</p>
     </div>
 
     <div class="area-card">
-      <div class="area-card-num">08</div>
       <svg class="area-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="8" y="19" width="24" height="15" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <rect x="16" y="21" width="8" height="2" rx="0.5" stroke="currentColor" stroke-width="1.2"/>
@@ -457,7 +453,7 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <path d="M17.5 10.5l2 2.2 3-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <div class="area-title">Direito Eleitoral</div>
-      <p class="area-text">Assessoramos candidatos, partidos e coligações em registros de candidatura, impugnações, recursos eleitorais e prestação de contas junto à Justiça Eleitoral. Atuamos também na defesa em representações por abuso de poder econômico e político, captação ilícita de sufrágio e propaganda eleitoral irregular — garantindo que sua campanha ou mandato esteja sempre dentro da lei.</p>
+      <p class="area-text">Assessoramos candidatos, partidos e coligações em registros de candidatura, impugnações, recursos eleitorais e prestação de contas junto à Justiça Eleitoral.</p>
     </div>
   </div>
 </section>
@@ -473,7 +469,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 
     <!-- 01 — ARMA DE FOGO -->
     <div class="processo-card">
-      <span class="processo-num">01</span>
       <svg class="processo-icon" viewBox="0 -10.24 47.753 47.753" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
         <g transform="translate(-382.247 -613.466)">
           <path d="M427.4,613.466l-1.86,4H409v-.394a2.464,2.464,0,0,0-2.156-2.606h-6.4a8.564,8.564,0,0,0-6.71,2.836l-.646-.739,0,0a1.347,1.347,0,0,0-1.977,1.828,1.334,1.334,0,0,0,.112.113l1.139,1.3a8.218,8.218,0,0,0-.362,2.451v1.523a14.792,14.792,0,0,0-6.312,3.913c-3.386,3.386-3.436,7.764-3.441,10.6a2.479,2.479,0,0,0,2.485,2.44l6.318-.02a1.215,1.215,0,0,0,1.167-1.222L392,634.319a1.421,1.421,0,0,1,.259-.885,1.094,1.094,0,0,1,.675-.391,3.892,3.892,0,0,0,2.239-.81,2.026,2.026,0,0,0,.386-.767h.451a5.13,5.13,0,0,0,10.258,0h.642a2.24,2.24,0,0,0,2.09-2.424v-4.576h5a2,2,0,0,0,2-2h14v-9Zm-26.258,21.02a3.138,3.138,0,0,1-3.129-3.02h2.106l1.784,1.784.989-.989-.8-.795h2.174A3.138,3.138,0,0,1,401.139,634.486Zm4.861-8.02h-8a1,1,0,0,1,0-2h8Zm0-3h-8a1,1,0,0,1,0-2h8Zm0-3h-8a1,1,0,0,1,0-2h8Z"/>
@@ -489,7 +484,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 
     <!-- 02 — FINANCIAMENTO DE VEÍCULOS -->
     <div class="processo-card">
-      <span class="processo-num">02</span>
       <svg class="processo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 24l2.5-8.5A3 3 0 0111.4 13h17.2a3 3 0 012.9 2.5L34 24" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         <rect x="4" y="24" width="32" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
@@ -507,7 +501,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 
     <!-- 03 — PREVIDENCIÁRIO -->
     <div class="processo-card">
-      <span class="processo-num">03</span>
       <svg class="processo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M12 6h16M12 34h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   <path d="M12 6c0 8 6 9 6 14s-6 6-6 14M28 6c0 8-6 9-6 14s6 6 6 14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -536,7 +529,6 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
 
     <!-- 01 -->
     <div class="diff-card">
-      <span class="diff-card-num">01</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="9" y="18" width="22" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <path d="M14 18v-5a6 6 0 0112 0v5" stroke="currentColor" stroke-width="1.5"/>
@@ -544,24 +536,22 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <line x1="20" y1="28" x2="20" y2="31" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
       <div class="diff-card-title">Sigilo Garantido pela OAB</div>
-      <p class="diff-card-text">Tudo que você nos conta é protegido pelo sigilo advocatício — obrigação ética prevista no Código de Ética da OAB. Você pode falar com total liberdade, sem medo de exposição.</p>
+      <p class="diff-card-text">Tudo que você nos conta é protegido pelo sigilo advocatício — obrigação ética prevista no Código de Ética da OAB.</p>
     </div>
 
     <!-- 02 -->
     <div class="diff-card">
-      <span class="diff-card-num">02</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5"/>
         <polyline points="20,12 20,20 26,24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="32" cy="10" r="4" fill="currentColor" stroke="var(--brown-deep)" stroke-width="1.5"/>
       </svg>
       <div class="diff-card-title">Controle Rigoroso de Prazos</div>
-      <p class="diff-card-text">No direito, um prazo perdido pode encerrar uma causa. Mantemos controle diário de todas as datas processuais — nenhuma publicação, despacho ou audiência passa despercebida.</p>
+      <p class="diff-card-text">Mantemos controle diário de todas as datas processuais — nenhuma publicação, despacho ou audiência passa despercebida.</p>
     </div>
 
     <!-- 03 -->
     <div class="diff-card">
-      <span class="diff-card-num">03</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 6h14l8 8v20H10V6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         <path d="M24 6v8h8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -570,24 +560,22 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <polyline points="15,17 17,19 21,15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <div class="diff-card-title">Honorários sem Letras Miúdas</div>
-      <p class="diff-card-text">Antes de qualquer assinatura, você recebe uma proposta clara com todos os valores e condições. Sem taxas surpresa, sem cobranças não acordadas. O contrato é lido junto com você.</p>
+      <p class="diff-card-text">Antes de qualquer assinatura, você recebe uma proposta clara com todos os valores e condições. Sem taxas surpresa.</p>
     </div>
 
     <!-- 04 -->
     <div class="diff-card">
-      <span class="diff-card-num">04</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 16l4 4 6-8 4 6 4-4 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         <rect x="6" y="6" width="28" height="28" rx="1" stroke="currentColor" stroke-width="1.5"/>
         <circle cx="12" cy="12" r="2" fill="currentColor"/>
       </svg>
       <div class="diff-card-title">Você Informado em Cada Etapa</div>
-      <p class="diff-card-text">Acompanhamos as movimentações do seu processo e comunicamos cada decisão relevante de forma simples, sem juridiquês. Você entende o que está acontecendo — sempre.</p>
+      <p class="diff-card-text">Acompanhamos as movimentações do seu processo e comunicamos cada decisão relevante de forma simples.</p>
     </div>
 
     <!-- 05 -->
     <div class="diff-card">
-      <span class="diff-card-num">05</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="20" y1="6" x2="20" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         <line x1="8" y1="14" x2="32" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -598,12 +586,11 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <line x1="29" y1="26" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
       <div class="diff-card-title">Tese Jurídica Construída para Você</div>
-      <p class="diff-card-text">Não trabalhamos com petições padronizadas. Cada caso recebe uma estratégia construída do zero, baseada nas particularidades da sua situação e no melhor caminho para o seu objetivo.</p>
+      <p class="diff-card-text">Não trabalhamos com petições padronizadas. Cada caso recebe uma estratégia construída do zero, baseada nas particularidades do caso.</p>
     </div>
 
     <!-- 06 -->
     <div class="diff-card">
-      <span class="diff-card-num">06</span>
       <svg class="diff-card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 34V18L20 8l12 10v16H8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         <rect x="16" y="24" width="8" height="10" stroke="currentColor" stroke-width="1.4"/>
@@ -685,8 +672,12 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
         <div class="contact-item-content">
           <h5>Telefone / WhatsApp</h5>
           <p><a href="tel:+557930199019">Fixo: (79) 3019-9019</a></p>
-          <p><a href="https://wa.me/5579981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Kariny: (79) 9 8171-4452</a></p> 
-          <p><a href="https://wa.me/5579996718080?text=Olá,+vim+através+do+site+e+quero+falar+sobre+consultoria" target="_blank" rel="noopener" aria-label="WhatsApp">Escritório: (79) 9 9671-8080</a></p> 
+          <p><a href="https://wa.me/5579981714452?text=Olá+Kariny,+vim+através+do+site+e+quero+falar+sobre+consultoria" 
+            target="_blank" rel="noopener" aria-label="WhatsApp">Kariny Freire: (79) 9 8171-4452</a></p> 
+          <p><a href="https://wa.me/5579999970936?text=Olá+Daniel,+vim+através+do+site+e+quero+falar+sobre+consultoria" 
+            target="_blank" rel="noopener" aria-label="WhatsApp">Daniel Freire: (79) 9 9997-0936</a></p> 
+          <p><a href="https://wa.me/5579996718080?text=Olá,+vim+através+do+site+e+quero+falar+sobre+consultoria" 
+            target="_blank" rel="noopener" aria-label="WhatsApp">Escritório: (79) 9 9671-8080</a></p> 
         </div>
       </div>
       <div class="contact-item">
@@ -856,10 +847,13 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
     </div>
     <div class="footer-dir">    
       <p class="footer-oab">
-      FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA - CNPJ: 68.517.210/0001-95 <br><br>
-      Numero de Inscrição - RFB: 68.517.210/0001-95 <br><br>
-      Atividade Econômica Principal: 69.11-7-01 <br>
-      <br> Kariny Souza da Silva Freire - OAB/SE 18.134
+      FREIRE SOCIEDADE INDIVIDUAL DE ADVOCACIA<br><br>
+      Numero de Inscrição - RFB / CNPJ: 68.517.210/0001-95 <br>
+      <br>Atividade Econômica Principal: 69.11-7-01
+      <br>Inscrição Municipal: 2402908
+      <br>Registro sob o nº 2078 perante a Comissão de Sociedade de Advogados do Conselho Federal da OAB.
+      <br><br> Kariny Souza da Silva Freire - OAB/SE 18.134 
+      <br>Daniel Santos Santana Freire - OAB/SE 2952 "E"
       <br><br> © 2026 Freire & Freire Advocacia. Todos os direitos reservados.
       </p>
     <!-- <p class="footer-copy"></p> -->
@@ -895,6 +889,15 @@ Com atuação pautada na ética, na excelência e no atendimento humanizado, bus
       </div>
       <div class="float-option-text">
         <span class="float-option-label">Dra. Kariny Freire</span>
+        <span class="float-option-name">Clientes já em atendimento</span>
+      </div>
+
+      <a href="https://wa.me/5579999970936?text=Olá+Daniel,+vim+através+do+site+e+quero+falar+sobre+consultoria" class="float-option" target="_blank" rel="noopener" aria-label="WhatsApp Dra. Freire">
+      <div class="float-option-icon wpp2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12.031 0C5.385 0 .004 5.385.004 12.035c0 2.13.553 4.208 1.603 6.04L.012 24l6.104-1.601a11.96 11.96 0 0 0 5.915 1.562h.003c6.645 0 12.029-5.385 12.029-12.035C24.063 5.385 18.679 0 12.031 0zm0 21.956c-1.802 0-3.567-.484-5.114-1.402l-.367-.217-3.799.996 1.014-3.704-.239-.379a9.927 9.927 0 0 1-1.52-5.305c0-5.516 4.492-10.007 10.025-10.007 5.534 0 10.026 4.491 10.026 10.007 0 5.517-4.492 10.011-10.026 10.011zm5.502-7.514c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.68.151-.202.302-.781.983-.956 1.185-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.5-1.01-.904-1.691-2.02-1.892-2.322-.202-.302-.021-.466.13-.617.135-.136.302-.352.453-.529.151-.176.202-.302.302-.503.1-.202.05-.378-.025-.529-.076-.151-.68-1.638-.931-2.242-.245-.589-.494-.508-.68-.518a14.28 14.28 0 0 0-.579-.011c-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.519s1.083 2.921 1.234 3.123c.151.202 2.129 3.249 5.158 4.557.72.311 1.282.497 1.721.636.723.23 1.381.198 1.901.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.309.176-1.435-.076-.126-.277-.202-.579-.353z"/></svg>
+      </div>
+      <div class="float-option-text">
+        <span class="float-option-label">Dr. Daniel Freire</span>
         <span class="float-option-name">Clientes já em atendimento</span>
       </div>
     </a>

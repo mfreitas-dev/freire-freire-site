@@ -116,7 +116,7 @@ nav.scrolled {
 .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
 }
@@ -124,7 +124,7 @@ nav.scrolled {
 /* Left decorative vertical line */
 .hero::before {
     content: '';
-    position: absolute; left: 60%; top: 0; bottom: 0;
+    position: absolute; left: 50%; top: 0; bottom: 0;
     width: 1px;
     background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 30%, rgba(201,168,76,0.4) 70%, transparent);
     z-index: 2;
@@ -155,7 +155,7 @@ nav.scrolled {
 }
 
 .logohero {
-    max-width: 480px;
+    max-width: 580px;
     width: 100%;
     height: auto;
     margin-bottom: 20px;
@@ -220,6 +220,7 @@ nav.scrolled {
     display: flex; gap: 40px;
     flex-wrap: wrap;
 }
+.isaac {font-size: 12px;}
 .stat {
     flex: 1 1 200px;
     min-width: 0;
@@ -269,13 +270,7 @@ nav.scrolled {
     z-index: 1;
 }
 /* Elegant frame */
-.photo-frame {
-    position: absolute;
-    top: 50px; left: 50px; right: 50px; bottom: 50px;
-    border: 1px solid rgba(201,168,76,0.25);
-    pointer-events: none;
-    z-index: 3; /* Render borders on top or bottom nicely */
-}
+
 .photo-frame::before, .photo-frame::after {
     content: '';
     position: absolute;
@@ -291,7 +286,7 @@ nav.scrolled {
     border-bottom: 2px solid var(--gold);
     border-right: 2px solid var(--gold);
 }
-.photo-frame-corner-tr, .photo-frame-corner-bl {
+/* .photo-frame-corner-tr, .photo-frame-corner-bl {
     position: absolute;
     width: 30px; height: 30px;
 }
@@ -304,40 +299,58 @@ nav.scrolled {
     bottom: -1px; left: -1px;
     border-bottom: 2px solid var(--gold);
     border-left: 2px solid var(--gold);
-}
+} */
 .photo-frame-text {
     position: absolute;
-    top: 10%;
-    right: 10px;
-    left: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+
+    padding: 18px 25px 20px;
+
+    /* background: rgba(80, 45, 21, 0.098); */
+    /* color: rgb(239, 231, 231); */
+
     font-family: 'Cinzel', serif;
-    font-size: 22px;
+    font-size: 14px;
     font-style: italic;
     font-weight: 500;
     letter-spacing: 0.18em;
     color: var(--gold);
+
     text-transform: uppercase;
-    opacity: 0.85;
+    opacity: 0.95;
+
     pointer-events: auto;
-    text-align: right
+    text-align: right;
+
+    z-index: 5;
 }
 
 #advfoto {
     position: absolute;
-    top: 50px;
-    bottom: 50px;
-    left: 50px;
-    right: 50px;
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
     object-fit: contain;
     object-position: bottom center;
+
     z-index: 2;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.6s ease;
 }
+
 .hero-right:hover #advfoto {
     transform: scale(1.02);
     filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.6)) brightness(1.03);
@@ -421,7 +434,7 @@ section { position: relative; overflow: hidden; }
 .about-text {
     font-size: 20px; line-height: 1.95;
     color: rgba(240,226,182,0.65); margin-bottom: 16px;
-    text-align: left;
+    text-align: justify;
 }
 .about-right { position: relative; z-index: 1; }
 .about-values {
@@ -431,7 +444,7 @@ section { position: relative; overflow: hidden; }
 .value-card {
     background: rgba(201,168,76,0.05);
     border: 1px solid rgba(201,168,76,0.1);
-    padding: 36px 28px;
+    padding: 56px 48px;
     transition: border-color 0.3s, background 0.3s;
     position: relative; overflow: hidden;
     text-align: center;
@@ -450,7 +463,7 @@ section { position: relative; overflow: hidden; }
 .value-card:hover::before { opacity: 1; }
 .value-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 300;
+    font-size: 46px; font-weight: 300;
     color: rgba(201,168,76,0.25); line-height: 1;
     margin-bottom: 12px;
 }
@@ -541,12 +554,12 @@ section { position: relative; overflow: hidden; }
     background: var(--gold); transform: scale(1.3);
 }
 .value-title {
-    font-family: 'Cinzel', serif; font-size: 15px;
+    font-family: 'Cinzel', serif; font-size: 20px;
     font-weight: 600; letter-spacing: 0.15em;
     color: var(--gold-light); margin-bottom: 10px;
 }
 .value-text {
-    font-size: 18px; line-height: 1.85;
+    font-size: 20px; line-height: 1.85;
     color: rgba(240,226,182,0.55);
 }
 
@@ -601,7 +614,7 @@ section { position: relative; overflow: hidden; }
 }
 .area-text {
     font-size: 18px; line-height: 1.9;
-    color: rgba(240,226,182,0.55);
+    color: rgba(240,226,182,0.55); text-align: justify;
 }
 
 /* ─── PROCESSO / COMO ATUAMOS ─── */
@@ -634,7 +647,7 @@ gap: 2px;
 .processo-card {
 background: var(--sec-3b-card); 
 display: flex; align-items: center; gap: 36px;
-padding: 52px 56px;
+padding: 50px 30%;
 position: relative; overflow: hidden;
 border-left: 2px solid transparent;
 transition: background 0.3s ease, border-color 0.3s ease;
@@ -659,18 +672,18 @@ margin-top: 4px;
 font-family: 'Cinzel', serif;
 font-size: 24px; font-weight: 600;
 letter-spacing: 0.14em; text-transform: uppercase;
-color: var(--gold-light); margin-bottom: 16px;
+color: var(--gold-light); margin-bottom: 16px; text-align: center;
 }
 .processo-text {
 font-size: 22px; line-height: 1.95;
-color: rgba(240,226,182,0.55);
+color: rgba(240,226,182,0.55); text-align: justify;
 }
 
 /* Responsivo */
 @media (max-width: 1100px) {
 .processo { padding: 80px 40px; }
 .processo-title { font-size: 24px; }
-.processo-text { font-size: 20px; line-height: 1.95; }
+.processo-text { font-size: 20px; line-height: 1.95; text-align: justify; }
 .processo-sub { font-size: 22px; }
 .processo-card { padding: 46px 44px; }
 }
@@ -684,16 +697,23 @@ align-items: flex-start;
 .processo-num { font-size: 60px; width: auto; }
 .processo-icon { width: 48px; height: 48px; }
 .processo-title { font-size: 24px; }
-.processo-text { font-size: 20px; line-height: 1.95; }
+.processo-text { font-size: 20px; line-height: 1.95; text-align: justify; }
 .processo-sub { font-size: 21px; }
+#advfoto {
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }
 @media (max-width: 480px) {
 .processo { padding: 56px 20px; }
-.processo-card { padding: 36px 24px; gap: 18px; }
+.processo-card { padding: 46px 44px; gap: 18px; }
 .processo-num { font-size: 52px; }
 .processo-icon { width: 44px; height: 44px; margin-left: auto; margin-right: auto; }
 .processo-title { font-size: 19px; text-align: center; }
-.processo-text { font-size: 21px; line-height: 1.95; text-align: center; }
+.processo-text { font-size: 21px; line-height: 1.95; text-align: justify; }
 .processo-sub { font-size: 21px; }
 }
 
@@ -773,7 +793,7 @@ align-items: flex-start;
 }
 .diff-card-text {
     font-size: 19px; line-height: 1.9;
-    color: rgba(240,226,182,0.52);
+    color: rgba(240,226,182,0.52); text-align: justify;
 }
 
 /* ─── TESTIMONIAL ─── */
@@ -1305,10 +1325,11 @@ footer {
     .hero { grid-template-columns: minmax(0, 1fr);min-height: 0; min-height: auto; }
     .hero::before { display: none; }
     .hero-left {
-    padding: 110px 40px 200px;
-    align-items: center;
+        top: 50px;
+        padding: 10px 40px 200px;
+        align-items: center; order: 2;
     }
-    .hero-right { min-height: 55vw; max-height: 70vw; }
+    .hero-right { min-height: 55vw; max-height: 70vw;  order: 1; top: 50px;}
     .logohero { max-width: 380px; }
     .hero-eyebrow { font-size: 14px; }
     .hero-subtitle { font-size: 13px; }
@@ -1336,7 +1357,7 @@ footer {
     .areas-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 48px; }
     .areas-header-right { text-align: left; max-width: 100%; font-size: 20px; }
     .areas-grid { grid-template-columns: 1fr 1fr; }
-    .area-card { padding: 44px 34px; text-align: center; }
+    .area-card { padding: 44px 44px; text-align: center; }
     .area-title { font-size: 26px; }
     .area-text { font-size: 18px; line-height: 1.9; }
 
@@ -1344,7 +1365,7 @@ footer {
     .diff-grid { grid-template-columns: 1fr 1fr; }
     .diferenciais-sub { font-size: 20px; }
     .diff-card-title { font-size: 14px; }
-    .diff-card-text { font-size: 18px; line-height: 1.9; }
+    .diff-card-text { font-size: 18px; line-height: 1.9; text-align: justify; }
 
     .faq-section { padding: 80px 40px; }
     .faq-question-text { font-size: 15px; }
@@ -1381,21 +1402,10 @@ footer {
     bottom: 20px;
     }
 
-    /* Push the photo down to clear space at the top of the frame */
-    #advfoto {
-    top: 90px; /* Starts 40px below the top of the frame */
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    width: calc(100% - 40px);
-    height: calc(100% - 80px);
-    }
-
     /* Position the text in the newly cleared space at the top of the frame */
     .photo-frame-text {
-    top: 15px;
-    right: 20px;
-    font-size: 13px; /* Slightly smaller for better fit on tablet/mobile */
+        top: auto;
+        font-size: 33px;
     }
 }
 
@@ -1420,8 +1430,12 @@ footer {
     .stat-num { font-size: 46px; }
     .stat-label { font-size: 13px; letter-spacing: 0.18em; }
     .stat-span { font-size: 15px; }
-    .hero-right { min-height: 65vw; }
-
+    .hero-right {
+        width: 100%;
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
     .section-label { font-size: 12px; }
     .section-heading { font-size: clamp(30px, 7vw, 46px); }
 
@@ -1443,7 +1457,7 @@ footer {
     .diferenciais { padding: 64px 28px; }
     .diff-card { padding: 36px 26px 32px; }
     .diff-card-title { font-size: 14px; }
-    .diff-card-text { font-size: 18px; line-height: 1.9; }
+    .diff-card-text { font-size: 18px; line-height: 1.9; text-align: justify; }
     .diferenciais-sub { font-size: 18px; }
 
     .faq-section { padding: 64px 28px; }
@@ -1491,20 +1505,21 @@ footer {
     .hero-badge-year { font-size: 10px; }
     .hero-badge-text { font-size: 9px; }
     .photo-frame-text {
-        font-size: 17px;
-        top: 5px;
-        bottom: auto;
-        right: 20px; }
-
+    font-size: 8px;
+    top: auto;
+    background: rgba(45, 28, 16, 0.511);
+    color: #debc73;
+    }
+    .isaac{font-size: 6px;}
     .section-label { font-size: 19px; }
     .section-heading { font-size: 44px; text-align: center; }
 
     .about { padding: 56px 20px; }
     .about-quote { font-size: 22px; line-height: 1.7; }
-    .about-text { font-size: 20px; line-height: 1.95; text-align: center; }
+    .about-text { font-size: 20px; line-height: 1.95; text-align: justify; }
     .about-values { grid-template-columns: 1fr; }
     .about::before { display: none; }
-    .value-card { padding: 24px 18px; }
+    .value-card { padding: 44px 38px; }
     .value-title { font-size: 24px; }
     .value-text { font-size: 22px; }
     .about-carousel-label { font-size: 16px; }
@@ -1514,15 +1529,15 @@ footer {
 
     .areas { padding: 56px 20px; }
     .areas-grid { grid-template-columns: 1fr; }
-    .area-card { padding: 36px 24px; text-align: center; }
+    .area-card { padding: 46px 44px; text-align: center; }
     .area-title { font-size: 28px; }
     .area-text { font-size: 20px; line-height: 1.9; }
 
     .diferenciais { padding: 56px 20px; }
     .diff-grid { grid-template-columns: 1fr; }
-    .diff-card { padding: 34px 22px 30px; }
+    .diff-card { padding: 34px 42px 50px; }
     .diff-card-title { font-size: 18px; }
-    .diff-card-text { font-size: 20px; line-height: 1.9; }
+    .diff-card-text { font-size: 20px; line-height: 1.9; text-align: justify; }
     .diferenciais-sub { font-size: 19px; }
 
     .faq-section { padding: 56px 20px; }
@@ -1553,4 +1568,30 @@ footer {
     .contact-map-label { font-size: 16px;}
     .map-open-link { font-size: 14px;}
     .areas-header-right { font-size: 20px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .hero-right {
+        width: 100%;
+        min-width: 100%;
+        min-height: 100vw;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #advfoto {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
 }
